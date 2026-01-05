@@ -4,34 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hey İrem 💜</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(135deg, #FF6B9D 0%, #C06C84 50%, #6C5B7B 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fef5f8 0%, #f0e6f0 50%, #e8d5e8 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             padding: 15px;
-            padding-bottom: 80px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Swan Lake - Multiple elegant swans */
+        body::before {
+            content: '🦢';
+            position: fixed;
+            font-size: 180px;
+            opacity: 0.06;
+            right: -40px;
+            top: 10%;
+            transform: rotate(-20deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        body::after {
+            content: '🦢';
+            position: fixed;
+            font-size: 220px;
+            opacity: 0.05;
+            left: -60px;
+            bottom: 5%;
+            transform: rotate(15deg) scaleX(-1);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Third swan for Swan Lake scene */
+        .container::before {
+            content: '🦢';
+            position: fixed;
+            font-size: 150px;
+            opacity: 0.04;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .header {
             background: white;
             border-radius: 25px;
-            padding: 25px;
+            padding: 30px 25px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 40px rgba(155, 89, 182, 0.15);
+            position: relative;
         }
 
         h1 {
@@ -39,132 +81,118 @@
             font-size: 2.5em;
             text-align: center;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .heart {
             color: #9B59B6;
-            font-size: 1.2em;
             animation: heartbeat 1.5s ease-in-out infinite;
             display: inline-block;
         }
         
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .subtitle {
             text-align: center;
-            color: #6C5B7B;
-            font-size: 0.9em;
-            margin-top: 5px;
+            color: #9B59B6;
+            font-size: 1em;
+            margin-bottom: 20px;
         }
 
         .flirty-message {
             background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
-            border: 2px solid #FF6B9D;
+            border: 2px solid rgba(221, 160, 221, 0.5);
             border-radius: 20px;
             padding: 15px 20px;
             margin: 15px 0;
+            color: #9B59B6;
             text-align: center;
-            color: #C06C84;
-            font-size: 1em;
             font-weight: 600;
             opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.5s ease;
             max-height: 0;
             overflow: hidden;
+            transition: all 0.5s;
         }
 
         .flirty-message.show {
             opacity: 1;
-            transform: translateY(0);
-            max-height: 100px;
-            margin: 15px 0;
+            max-height: 150px;
         }
 
         .stats {
             display: flex;
             justify-content: space-around;
             margin-top: 20px;
-            gap: 10px;
+            gap: 15px;
         }
 
         .stat {
             text-align: center;
             flex: 1;
-            background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
+            background: rgba(155, 89, 182, 0.08);
             padding: 12px;
             border-radius: 15px;
         }
 
         .stat-number {
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: 700;
-            color: #FF6B9D;
+            color: #9B59B6;
         }
 
         .stat-label {
-            font-size: 0.8em;
+            font-size: 0.9em;
             color: #6C5B7B;
             margin-top: 5px;
         }
 
-        .level-filter {
-            display: flex;
-            gap: 8px;
-            margin: 15px 0;
-            overflow-x: auto;
-            padding-bottom: 5px;
-        }
-
-        .level-btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            font-size: 0.85em;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .level-btn.active {
-            background: white;
-            color: #FF6B9D;
-        }
-
+        .level-filter,
         .nav-tabs {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            background: white;
+            padding: 12px;
+            border-radius: 20px;
             overflow-x: auto;
-            padding-bottom: 5px;
+            box-shadow: 0 5px 20px rgba(155, 89, 182, 0.1);
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .level-filter::-webkit-scrollbar,
+        .nav-tabs::-webkit-scrollbar {
+            height: 5px;
+        }
+        
+        .level-filter::-webkit-scrollbar-thumb,
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: rgba(155, 89, 182, 0.3);
+            border-radius: 10px;
         }
 
+        .level-btn,
         .tab-btn {
-            flex-shrink: 0;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            font-size: 0.9em;
+            flex: 0 0 auto;
+            padding: 12px 22px;
+            border: 2px solid #DDA0DD;
+            border-radius: 15px;
+            background: white;
+            color: #9B59B6;
+            font-size: 0.95em;
             font-weight: 600;
             cursor: pointer;
-            font-family: 'Fredoka', sans-serif;
             white-space: nowrap;
+            transition: all 0.3s;
         }
 
+        .level-btn.active,
         .tab-btn.active {
-            background: white;
-            color: #FF6B9D;
-            transform: scale(1.05);
+            background: linear-gradient(135deg, #9B59B6, #BA55D3);
+            color: white;
+            border-color: #9B59B6;
         }
 
         .content-area {
@@ -173,37 +201,39 @@
 
         .content-area.active {
             display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .card {
             background: white;
             border-radius: 25px;
-            padding: 30px 25px;
-            margin-bottom: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            min-height: 400px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(155, 89, 182, 0.12);
+            min-height: 450px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .category-badge {
+            background: rgba(155, 89, 182, 0.15);
+            color: #9B59B6;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .word-type {
+            background: rgba(221, 160, 221, 0.2);
+            color: #6C5B7B;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.8em;
         }
 
         .word-main {
@@ -211,323 +241,213 @@
             font-weight: 700;
             color: #FF6B9D;
             text-align: center;
-            margin: 30px 0;
-            text-transform: capitalize;
-            line-height: 1.2;
+            margin: 40px 0;
         }
 
         .word-translation {
-            font-size: 1.5em;
-            color: #6C5B7B;
+            font-size: 1.8em;
+            color: #9B59B6;
             text-align: center;
             opacity: 0;
-            transition: all 0.3s;
-            transform: translateY(-10px);
-            margin: 20px 0;
+            transition: all 0.4s;
+            margin: 30px 0;
         }
 
         .word-translation.show {
             opacity: 1;
-            transform: translateY(0);
-        }
-
-        .word-type, .category-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
-            border-radius: 15px;
-            font-size: 0.85em;
-            color: #FF6B9D;
-            margin: 5px;
         }
 
         .example-sentence {
-            background: linear-gradient(135deg, #F8F9FA, #F0F0F0);
+            background: #F8F9FA;
             padding: 20px;
             border-radius: 15px;
-            border-left: 4px solid #FF6B9D;
+            border-left: 4px solid #DDA0DD;
             margin-top: auto;
             font-style: italic;
             color: #555;
-            font-size: 1.05em;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 20px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Fredoka', sans-serif;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #FF6B9D, #C06C84);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #FF6B9D;
-            border: 2px solid #FF6B9D;
-        }
-
-        .btn:active {
-            transform: scale(0.95);
+            line-height: 1.6;
         }
 
         .sentence-container {
             font-size: 1.4em;
-            line-height: 2;
             color: #333;
             margin: 30px 0;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             background: #F8F9FA;
-            border-radius: 15px;
+            border-radius: 18px;
         }
 
-        /* Removed old .blank styles - using inline styles now */
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
+        .target-sentence {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #9B59B6;
+            text-align: center;
+            padding: 25px;
+            background: #F8F9FA;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            border: 2px dashed #DDA0DD;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .building-area {
+            min-height: 140px;
+            background: #F8F9FA;
+            border: 3px dashed #DDA0DD;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .placeholder-text {
+            width: 100%;
+            text-align: center;
+            color: rgba(155, 89, 182, 0.4);
+            margin: auto;
+        }
+
+        .building-area.has-words .placeholder-text {
+            display: none;
         }
 
         .word-options {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
             justify-content: center;
+            margin: 25px 0;
         }
 
         .word-chip {
             padding: 14px 24px;
             background: white;
-            border: 3px solid #FF6B9D;
+            border: 3px solid #DDA0DD;
             border-radius: 25px;
-            font-size: 1.05em;
             font-weight: 600;
-            color: #FF6B9D;
+            color: #9B59B6;
             cursor: pointer;
             transition: all 0.3s;
-            user-select: none;
-            box-shadow: 0 2px 8px rgba(255, 107, 157, 0.2);
-        }
-
-        .word-chip:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
-        }
-
-        .word-chip:active {
-            transform: scale(0.95);
+            box-shadow: 0 4px 15px rgba(147, 112, 219, 0.1);
         }
 
         .word-chip.used {
             opacity: 0.3;
-            pointer-events: none;
-            transform: scale(0.9);
         }
 
         .word-chip.selected {
-            background: linear-gradient(135deg, #FF6B9D, #C06C84);
+            background: linear-gradient(135deg, #9B59B6, #BA55D3);
             color: white;
-            transform: scale(1.08);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
         }
-
-        .building-area {
-            min-height: 120px;
-            background: linear-gradient(135deg, #F8F9FA, #FFFFFF);
-            border: 3px dashed #FF6B9D;
-            border-radius: 20px;
-            padding: 20px;
-            margin: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: flex-start;
-            align-content: flex-start;
-        }
-
-        .building-area.has-words {
-            border-style: solid;
-        }
-
-        .building-area .word-chip {
-            background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
-            position: relative;
-        }
-
-        .building-area .word-chip::after {
-            content: '×';
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            width: 20px;
-            height: 20px;
-            background: #FF6B9D;
+        
+        .word-chip.correct {
+            background: #4CAF50;
             color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
         }
-
-        .target-sentence {
-            background: linear-gradient(135deg, #E8EAF6, #F3E5F5);
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #6C5B7B;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-
-        .placeholder-text {
-            color: #999;
-            text-align: center;
-            font-style: italic;
-            width: 100%;
+        
+        .word-chip.wrong {
+            background: #f44336;
+            color: white;
         }
 
         .quiz-options {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 20px;
+            margin: 30px 0;
         }
 
         .quiz-option {
-            padding: 18px;
+            padding: 18px 25px;
             background: white;
-            border: 3px solid #E0E0E0;
-            border-radius: 20px;
-            font-size: 1.1em;
+            border: 3px solid #DDA0DD;
+            border-radius: 18px;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .quiz-option:active {
-            transform: scale(0.98);
+            text-align: center;
         }
 
         .quiz-option.correct {
-            background: linear-gradient(135deg, #C8E6C9, #E8F5E9);
+            background: #E8F5E9;
             border-color: #4CAF50;
             color: #2E7D32;
         }
 
         .quiz-option.wrong {
-            background: linear-gradient(135deg, #FFCDD2, #FFEBEE);
-            border-color: #F44336;
+            background: #FFEBEE;
+            border-color: #f44336;
             color: #C62828;
         }
 
-        .progress-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 18px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #9B59B6, #BA55D3);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #9B59B6;
+            border: 2px solid #DDA0DD;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 15px;
+            text-align: center;
+            opacity: 0;
+            max-height: 0;
             overflow: hidden;
-            margin-bottom: 20px;
+            transition: all 0.4s;
+        }
+
+        .feedback.show {
+            opacity: 1;
+            max-height: 200px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(221, 160, 221, 0.3);
+            border-radius: 10px;
+            margin-top: 15px;
         }
 
         .progress-fill {
             height: 100%;
-            background: white;
+            background: linear-gradient(90deg, #9B59B6, #BA55D3);
             border-radius: 10px;
-            transition: width 0.3s;
-        }
-
-        .feedback {
-            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #2E7D32;
-            display: none;
-        }
-
-        .feedback.show {
-            display: block;
-            animation: bounceIn 0.5s;
-        }
-
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            transition: width 0.5s;
         }
 
         .loading {
             text-align: center;
-            padding: 40px;
-            color: white;
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 480px) {
-            .word-main {
-                font-size: 2.2em;
-            }
-            
-            .sentence-container {
-                font-size: 1.2em;
-                padding: 15px;
-            }
-            
-            .card {
-                padding: 25px 20px;
-                min-height: 450px;
-            }
-            
-            .word-translation {
-                font-size: 1.3em;
-            }
-            
-            .btn-group {
-                flex-direction: row;
-                gap: 8px;
-            }
-            
-            .btn {
-                font-size: 0.95em;
-                padding: 12px;
-            }
+            padding: 60px 20px;
+            font-size: 1.5em;
+            color: #9B59B6;
         }
     </style>
+</head>
+
 </head>
 <body>
     <div class="container">
@@ -638,11 +558,16 @@
                     </div>
                 </div>
                 
-                <div class="target-sentence" id="bs-target"></div>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <p style="color: #6C5B7B; font-size: 1em; font-weight: 600;">🇹🇷 Türkçe cümleyi İngilizce yap</p>
+                    <p style="color: #999; font-size: 0.9em;">Translate the Turkish sentence to English</p>
+                </div>
+                
+                <div class="target-sentence" id="bs-turkish" style="font-size: 1.3em; color: #C06C84;"></div>
                 
                 <div style="flex: 1;">
                     <div class="building-area" id="bs-area">
-                        <div class="placeholder-text">Tap words below to build the sentence</div>
+                        <div class="placeholder-text">Tap words below to build the English sentence</div>
                     </div>
                 </div>
                 
@@ -693,8 +618,10 @@
 
         
         
+        
+        
         // ===== EMBEDDED VOCABULARY DATA =====
-        // 985 words + 212 fill-blanks + 200 sentence builders!
+        // 985 words + 332 fill-blanks + 187 Turkish→English - ALL MEANINGFUL!
         const EMBEDDED_DATA = {
   "vocabulary": [
     {
@@ -5043,7 +4970,7 @@
     },
     {
       "word": "afford",
-      "translation": "gücü yetmek",
+      "translation": "karşılayabilmek",
       "type": "verb",
       "category": "Money",
       "example": "Can't afford it.",
@@ -5179,7 +5106,7 @@
     },
     {
       "word": "approach",
-      "translation": "yaklaşmak",
+      "translation": "yaklaşım",
       "type": "verb",
       "category": "Actions",
       "example": "Approach the problem carefully.",
@@ -5307,7 +5234,7 @@
     },
     {
       "word": "attempt",
-      "translation": "denemek",
+      "translation": "girişim",
       "type": "verb",
       "category": "Actions",
       "example": "Attempt to solve.",
@@ -5539,7 +5466,7 @@
     },
     {
       "word": "beneficial",
-      "translation": "faydalı",
+      "translation": "yararlı",
       "type": "adjective",
       "category": "Descriptions",
       "example": "Beneficial exercise.",
@@ -5659,7 +5586,7 @@
     },
     {
       "word": "blend",
-      "translation": "karıştırmak",
+      "translation": "karışım",
       "type": "verb",
       "category": "Cooking",
       "example": "Blend ingredients.",
@@ -5667,7 +5594,7 @@
     },
     {
       "word": "bless",
-      "translation": "kutsama",
+      "translation": "kutsamak",
       "type": "verb",
       "category": "Religion",
       "example": "God bless you.",
@@ -6331,7 +6258,7 @@
     },
     {
       "word": "cease",
-      "translation": "durdurmak",
+      "translation": "durmak",
       "type": "verb",
       "category": "Actions",
       "example": "Cease fire.",
@@ -6459,7 +6386,7 @@
     },
     {
       "word": "characteristic",
-      "translation": "karakteristik",
+      "translation": "özellik",
       "type": "adjective",
       "category": "Descriptions",
       "example": "Characteristic feature.",
@@ -6675,7 +6602,7 @@
     },
     {
       "word": "clarify",
-      "translation": "açıklamak",
+      "translation": "açıklığa kavuşturmak",
       "type": "verb",
       "category": "Communication",
       "example": "Clarify situation.",
@@ -7275,7 +7202,7 @@
     },
     {
       "word": "acquire",
-      "translation": "b2_acquire_tr",
+      "translation": "edinmek",
       "type": "verb",
       "category": "General",
       "example": "Example with acquire.",
@@ -7283,7 +7210,7 @@
     },
     {
       "word": "adjust",
-      "translation": "b2_adjust_tr",
+      "translation": "ayarlamak",
       "type": "noun",
       "category": "General",
       "example": "Example with adjust.",
@@ -7291,7 +7218,7 @@
     },
     {
       "word": "admire",
-      "translation": "b2_admire_tr",
+      "translation": "hayran olmak",
       "type": "verb",
       "category": "General",
       "example": "Example with admire.",
@@ -7299,7 +7226,7 @@
     },
     {
       "word": "adopt",
-      "translation": "b2_adopt_tr",
+      "translation": "benimsemek",
       "type": "noun",
       "category": "General",
       "example": "Example with adopt.",
@@ -7307,7 +7234,7 @@
     },
     {
       "word": "affect",
-      "translation": "b2_affect_tr",
+      "translation": "etkilemek",
       "type": "noun",
       "category": "General",
       "example": "Example with affect.",
@@ -7331,7 +7258,7 @@
     },
     {
       "word": "allocate",
-      "translation": "b2_allocate_tr",
+      "translation": "ayırmak",
       "type": "verb",
       "category": "General",
       "example": "Example with allocate.",
@@ -7339,7 +7266,7 @@
     },
     {
       "word": "alter",
-      "translation": "b2_alter_tr",
+      "translation": "değiştirmek",
       "type": "noun",
       "category": "General",
       "example": "Example with alter.",
@@ -7347,7 +7274,7 @@
     },
     {
       "word": "alternative",
-      "translation": "b2_alternative_tr",
+      "translation": "alternatif",
       "type": "verb",
       "category": "General",
       "example": "Example with alternative.",
@@ -7355,7 +7282,7 @@
     },
     {
       "word": "amateur",
-      "translation": "b2_amateur_tr",
+      "translation": "amatör",
       "type": "noun",
       "category": "General",
       "example": "Example with amateur.",
@@ -7363,7 +7290,7 @@
     },
     {
       "word": "ambition",
-      "translation": "b2_ambition_tr",
+      "translation": "hırs",
       "type": "verb",
       "category": "General",
       "example": "Example with ambition.",
@@ -7379,7 +7306,7 @@
     },
     {
       "word": "analyze",
-      "translation": "b2_analyze_tr",
+      "translation": "analiz etmek",
       "type": "verb",
       "category": "General",
       "example": "Example with analyze.",
@@ -7395,7 +7322,7 @@
     },
     {
       "word": "anticipate",
-      "translation": "b2_anticipate_tr",
+      "translation": "öngörmek",
       "type": "verb",
       "category": "General",
       "example": "Example with anticipate.",
@@ -7403,7 +7330,7 @@
     },
     {
       "word": "apparent",
-      "translation": "b2_apparent_tr",
+      "translation": "açık",
       "type": "noun",
       "category": "General",
       "example": "Example with apparent.",
@@ -7411,7 +7338,7 @@
     },
     {
       "word": "appeal",
-      "translation": "b2_appeal_tr",
+      "translation": "çekicilik",
       "type": "verb",
       "category": "General",
       "example": "Example with appeal.",
@@ -7419,7 +7346,7 @@
     },
     {
       "word": "applaud",
-      "translation": "b2_applaud_tr",
+      "translation": "alkışlamak",
       "type": "noun",
       "category": "General",
       "example": "Example with applaud.",
@@ -7427,7 +7354,7 @@
     },
     {
       "word": "assemble",
-      "translation": "b2_assemble_tr",
+      "translation": "toplamak",
       "type": "verb",
       "category": "General",
       "example": "Example with assemble.",
@@ -7435,7 +7362,7 @@
     },
     {
       "word": "assert",
-      "translation": "b2_assert_tr",
+      "translation": "iddia etmek",
       "type": "noun",
       "category": "General",
       "example": "Example with assert.",
@@ -7443,7 +7370,7 @@
     },
     {
       "word": "astonish",
-      "translation": "b2_astonish_tr",
+      "translation": "şaşırtmak",
       "type": "verb",
       "category": "General",
       "example": "Example with astonish.",
@@ -7451,7 +7378,7 @@
     },
     {
       "word": "attain",
-      "translation": "b2_attain_tr",
+      "translation": "ulaşmak",
       "type": "noun",
       "category": "General",
       "example": "Example with attain.",
@@ -7459,7 +7386,7 @@
     },
     {
       "word": "authorize",
-      "translation": "b2_authorize_tr",
+      "translation": "yetkilendirmek",
       "type": "noun",
       "category": "General",
       "example": "Example with authorize.",
@@ -7467,7 +7394,7 @@
     },
     {
       "word": "awkward",
-      "translation": "b2_awkward_tr",
+      "translation": "garip",
       "type": "noun",
       "category": "General",
       "example": "Example with awkward.",
@@ -7483,7 +7410,7 @@
     },
     {
       "word": "bare",
-      "translation": "b2_bare_tr",
+      "translation": "çıplak",
       "type": "noun",
       "category": "General",
       "example": "Example with bare.",
@@ -7491,7 +7418,7 @@
     },
     {
       "word": "beneath",
-      "translation": "b2_beneath_tr",
+      "translation": "altında",
       "type": "noun",
       "category": "General",
       "example": "Example with beneath.",
@@ -7499,7 +7426,7 @@
     },
     {
       "word": "bias",
-      "translation": "b2_bias_tr",
+      "translation": "önyargı",
       "type": "noun",
       "category": "General",
       "example": "Example with bias.",
@@ -7507,7 +7434,7 @@
     },
     {
       "word": "bind",
-      "translation": "b2_bind_tr",
+      "translation": "bağlamak",
       "type": "verb",
       "category": "General",
       "example": "Example with bind.",
@@ -7515,7 +7442,7 @@
     },
     {
       "word": "bizarre",
-      "translation": "b2_bizarre_tr",
+      "translation": "tuhaf",
       "type": "verb",
       "category": "General",
       "example": "Example with bizarre.",
@@ -7523,7 +7450,7 @@
     },
     {
       "word": "bloom",
-      "translation": "b2_bloom_tr",
+      "translation": "çiçek açmak",
       "type": "noun",
       "category": "General",
       "example": "Example with bloom.",
@@ -7531,7 +7458,7 @@
     },
     {
       "word": "boost",
-      "translation": "b2_boost_tr",
+      "translation": "artırmak",
       "type": "noun",
       "category": "General",
       "example": "Example with boost.",
@@ -7539,7 +7466,7 @@
     },
     {
       "word": "boundary",
-      "translation": "b2_boundary_tr",
+      "translation": "sınır",
       "type": "verb",
       "category": "General",
       "example": "Example with boundary.",
@@ -10910,2459 +10837,2263 @@
         "run"
       ],
       "level": "B1"
+    },
+    {
+      "sentence": "In my ___, this is the best solution.",
+      "answer": "opinion",
+      "options": [
+        "opinion",
+        "food",
+        "car",
+        "house"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I strongly ___ with your idea.",
+      "answer": "disagree",
+      "options": [
+        "disagree",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Let me ___ my point of view.",
+      "answer": "explain",
+      "options": [
+        "explain",
+        "eat",
+        "sleep",
+        "drink"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "We need to ___ this matter.",
+      "answer": "discuss",
+      "options": [
+        "discuss",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I ___ to think about it.",
+      "answer": "prefer",
+      "options": [
+        "prefer",
+        "eat",
+        "sleep",
+        "walk"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "That's a very ___ argument.",
+      "answer": "valid",
+      "options": [
+        "valid",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I can ___ your frustration.",
+      "answer": "understand",
+      "options": [
+        "understand",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Could you ___ that again?",
+      "answer": "clarify",
+      "options": [
+        "clarify",
+        "eat",
+        "sleep",
+        "drink"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm ___ to believe you.",
+      "answer": "willing",
+      "options": [
+        "willing",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Let's ___ to a compromise.",
+      "answer": "come",
+      "options": [
+        "come",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I ___ been waiting for hours.",
+      "answer": "have",
+      "options": [
+        "have",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ already finished her work.",
+      "answer": "has",
+      "options": [
+        "has",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "We ___ never been to Japan.",
+      "answer": "have",
+      "options": [
+        "have",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "By tomorrow, I ___ be there.",
+      "answer": "will",
+      "options": [
+        "will",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "If I ___ you, I would go.",
+      "answer": "were",
+      "options": [
+        "were",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I wish I ___ speak French.",
+      "answer": "could",
+      "options": [
+        "could",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ have told me earlier.",
+      "answer": "should",
+      "options": [
+        "should",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "They ___ be arriving soon.",
+      "answer": "must",
+      "options": [
+        "must",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I ___ rather stay home.",
+      "answer": "would",
+      "options": [
+        "would",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "You ___ have been more careful.",
+      "answer": "could",
+      "options": [
+        "could",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm ___ for a new job.",
+      "answer": "looking",
+      "options": [
+        "looking",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She got ___ last month.",
+      "answer": "promoted",
+      "options": [
+        "promoted",
+        "hungry",
+        "tired",
+        "happy"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I need to ___ my resume.",
+      "answer": "update",
+      "options": [
+        "update",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "The interview went ___.",
+      "answer": "well",
+      "options": [
+        "well",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm ___ to a new position.",
+      "answer": "applying",
+      "options": [
+        "applying",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "My boss is very ___.",
+      "answer": "demanding",
+      "options": [
+        "demanding",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I work ___ hours a week.",
+      "answer": "forty",
+      "options": [
+        "forty",
+        "happy",
+        "hungry",
+        "tired"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ her own business.",
+      "answer": "runs",
+      "options": [
+        "runs",
+        "eats",
+        "sleeps",
+        "drinks"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm ___ for retirement.",
+      "answer": "saving",
+      "options": [
+        "saving",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "The salary is quite ___.",
+      "answer": "competitive",
+      "options": [
+        "competitive",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm ___ in computer science.",
+      "answer": "majoring",
+      "options": [
+        "majoring",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ from university last year.",
+      "answer": "graduated",
+      "options": [
+        "graduated",
+        "ate",
+        "slept",
+        "ran"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I need to ___ for the exam.",
+      "answer": "revise",
+      "options": [
+        "revise",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "The course is very ___.",
+      "answer": "challenging",
+      "options": [
+        "challenging",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm taking an ___ course.",
+      "answer": "online",
+      "options": [
+        "online",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ a scholarship.",
+      "answer": "received",
+      "options": [
+        "received",
+        "ate",
+        "slept",
+        "ran"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I want to ___ my skills.",
+      "answer": "improve",
+      "options": [
+        "improve",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "The lecture was very ___.",
+      "answer": "informative",
+      "options": [
+        "informative",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm ___ for a degree.",
+      "answer": "studying",
+      "options": [
+        "studying",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ high grades.",
+      "answer": "achieved",
+      "options": [
+        "achieved",
+        "ate",
+        "slept",
+        "ran"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm trying to stay ___.",
+      "answer": "fit",
+      "options": [
+        "fit",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ yoga every morning.",
+      "answer": "practices",
+      "options": [
+        "practices",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I need to ___ my diet.",
+      "answer": "improve",
+      "options": [
+        "improve",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "He's ___ from surgery.",
+      "answer": "recovering",
+      "options": [
+        "recovering",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I feel much ___ now.",
+      "answer": "healthier",
+      "options": [
+        "healthier",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "She ___ smoking last year.",
+      "answer": "quit",
+      "options": [
+        "quit",
+        "ate",
+        "slept",
+        "ran"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I'm on a strict ___.",
+      "answer": "diet",
+      "options": [
+        "diet",
+        "apple",
+        "book",
+        "car"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "He ___ regularly at the gym.",
+      "answer": "works out",
+      "options": [
+        "works out",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "My blood pressure is ___.",
+      "answer": "normal",
+      "options": [
+        "normal",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I need to ___ more water.",
+      "answer": "consume",
+      "options": [
+        "consume",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "We should ___ the environment.",
+      "answer": "protect",
+      "options": [
+        "protect",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Pollution is a serious ___.",
+      "answer": "problem",
+      "options": [
+        "problem",
+        "apple",
+        "book",
+        "car"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I always ___ my trash.",
+      "answer": "recycle",
+      "options": [
+        "recycle",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Global warming is ___.",
+      "answer": "alarming",
+      "options": [
+        "alarming",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "We need to ___ energy.",
+      "answer": "conserve",
+      "options": [
+        "conserve",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "The forest is being ___.",
+      "answer": "destroyed",
+      "options": [
+        "destroyed",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "I use ___ bags.",
+      "answer": "reusable",
+      "options": [
+        "reusable",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Species are becoming ___.",
+      "answer": "extinct",
+      "options": [
+        "extinct",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "We should ___ our carbon footprint.",
+      "answer": "reduce",
+      "options": [
+        "reduce",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "Solar energy is ___.",
+      "answer": "sustainable",
+      "options": [
+        "sustainable",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B1"
+    },
+    {
+      "sentence": "The situation is quite ___.",
+      "answer": "complicated",
+      "options": [
+        "complicated",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "I find this theory ___.",
+      "answer": "intriguing",
+      "options": [
+        "intriguing",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We need to ___ the issue thoroughly.",
+      "answer": "analyze",
+      "options": [
+        "analyze",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "This requires ___ consideration.",
+      "answer": "careful",
+      "options": [
+        "careful",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The results are ___.",
+      "answer": "inconclusive",
+      "options": [
+        "inconclusive",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "I must ___ this statement.",
+      "answer": "emphasize",
+      "options": [
+        "emphasize",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The evidence is ___.",
+      "answer": "overwhelming",
+      "options": [
+        "overwhelming",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We should ___ alternative solutions.",
+      "answer": "explore",
+      "options": [
+        "explore",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "This ___ further investigation.",
+      "answer": "warrants",
+      "options": [
+        "warrants",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "I can ___ see your point.",
+      "answer": "certainly",
+      "options": [
+        "certainly",
+        "happily",
+        "quickly",
+        "slowly"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We need to ___ our strategy.",
+      "answer": "revise",
+      "options": [
+        "revise",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The deadline has been ___.",
+      "answer": "extended",
+      "options": [
+        "extended",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "I'm ___ a proposal.",
+      "answer": "drafting",
+      "options": [
+        "drafting",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The meeting was ___.",
+      "answer": "productive",
+      "options": [
+        "productive",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We should ___ our resources.",
+      "answer": "allocate",
+      "options": [
+        "allocate",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The project ___ several challenges.",
+      "answer": "encountered",
+      "options": [
+        "encountered",
+        "ate",
+        "slept",
+        "ran"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "I need to ___ with my team.",
+      "answer": "collaborate",
+      "options": [
+        "collaborate",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The report ___ key findings.",
+      "answer": "highlights",
+      "options": [
+        "highlights",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We must ___ quality standards.",
+      "answer": "maintain",
+      "options": [
+        "maintain",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The initiative was ___.",
+      "answer": "successful",
+      "options": [
+        "successful",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The study ___ interesting results.",
+      "answer": "yielded",
+      "options": [
+        "yielded",
+        "ate",
+        "slept",
+        "ran"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We need to ___ our hypothesis.",
+      "answer": "validate",
+      "options": [
+        "validate",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The data ___ our assumptions.",
+      "answer": "contradicts",
+      "options": [
+        "contradicts",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "Further research is ___.",
+      "answer": "required",
+      "options": [
+        "required",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The findings are ___.",
+      "answer": "significant",
+      "options": [
+        "significant",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We must ___ the methodology.",
+      "answer": "refine",
+      "options": [
+        "refine",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The experiment was ___ successful.",
+      "answer": "partially",
+      "options": [
+        "partially",
+        "happily",
+        "quickly",
+        "slowly"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "I'm ___ a comprehensive study.",
+      "answer": "conducting",
+      "options": [
+        "conducting",
+        "eating",
+        "sleeping",
+        "running"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The theory has been ___.",
+      "answer": "disproven",
+      "options": [
+        "disproven",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We should ___ peer-reviewed sources.",
+      "answer": "consult",
+      "options": [
+        "consult",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "This is a ___ debate.",
+      "answer": "controversial",
+      "options": [
+        "controversial",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We must ___ inequality.",
+      "answer": "address",
+      "options": [
+        "address",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The policy has been ___.",
+      "answer": "implemented",
+      "options": [
+        "implemented",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "Society is ___ changing.",
+      "answer": "rapidly",
+      "options": [
+        "rapidly",
+        "happily",
+        "slowly",
+        "quietly"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We should ___ diversity.",
+      "answer": "embrace",
+      "options": [
+        "embrace",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "This ___ human rights.",
+      "answer": "violates",
+      "options": [
+        "violates",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The movement is gaining ___.",
+      "answer": "momentum",
+      "options": [
+        "momentum",
+        "apple",
+        "book",
+        "car"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "We need to ___ awareness.",
+      "answer": "raise",
+      "options": [
+        "raise",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The community is ___.",
+      "answer": "divided",
+      "options": [
+        "divided",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "Reform is ___ necessary.",
+      "answer": "desperately",
+      "options": [
+        "desperately",
+        "happily",
+        "quickly",
+        "slowly"
+      ],
+      "level": "B2"
+    },
+    {
+      "sentence": "The concept is rather ___.",
+      "answer": "abstract",
+      "options": [
+        "abstract",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "We must ___ the underlying principles.",
+      "answer": "comprehend",
+      "options": [
+        "comprehend",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The argument is ___.",
+      "answer": "compelling",
+      "options": [
+        "compelling",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "This ___ further scrutiny.",
+      "answer": "necessitates",
+      "options": [
+        "necessitates",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The theory has been ___.",
+      "answer": "substantiated",
+      "options": [
+        "substantiated",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "We should not ___ conclusions.",
+      "answer": "presuppose",
+      "options": [
+        "presuppose",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The implications are ___.",
+      "answer": "profound",
+      "options": [
+        "profound",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "This ___ conventional wisdom.",
+      "answer": "challenges",
+      "options": [
+        "challenges",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The phenomenon is ___.",
+      "answer": "unprecedented",
+      "options": [
+        "unprecedented",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "We must ___ objectivity.",
+      "answer": "maintain",
+      "options": [
+        "maintain",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The research ___ new insights.",
+      "answer": "elucidates",
+      "options": [
+        "elucidates",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "We should ___ existing frameworks.",
+      "answer": "transcend",
+      "options": [
+        "transcend",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The methodology is ___.",
+      "answer": "rigorous",
+      "options": [
+        "rigorous",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "This ___ further investigation.",
+      "answer": "merits",
+      "options": [
+        "merits",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The findings are ___.",
+      "answer": "empirical",
+      "options": [
+        "empirical",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "We must ___ bias.",
+      "answer": "eliminate",
+      "options": [
+        "eliminate",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The correlation is ___.",
+      "answer": "statistically significant",
+      "options": [
+        "statistically significant",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "This ___ previous research.",
+      "answer": "corroborates",
+      "options": [
+        "corroborates",
+        "eats",
+        "sleeps",
+        "runs"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "The variables are ___.",
+      "answer": "interdependent",
+      "options": [
+        "interdependent",
+        "happy",
+        "tall",
+        "fast"
+      ],
+      "level": "C1"
+    },
+    {
+      "sentence": "We should ___ the data.",
+      "answer": "extrapolate",
+      "options": [
+        "extrapolate",
+        "eat",
+        "sleep",
+        "run"
+      ],
+      "level": "C1"
     }
   ],
   "buildSentences": [
     {
-      "target": "Hello, how are you?",
-      "words": [
-        "Hello,",
-        "blow",
-        "how",
-        "meat",
-        "are",
-        "egg",
-        "you?"
-      ],
+      "turkish": "Merhaba, nasılsın?",
+      "english": "Hello, how are you?",
       "level": "A1"
     },
     {
-      "target": "Goodbye, see you later!",
-      "words": [
-        "college",
-        "abandon",
-        "Goodbye,",
-        "table",
-        "see",
-        "later!",
-        "you"
-      ],
+      "turkish": "Benim adım İrem.",
+      "english": "My name is Irem.",
       "level": "A1"
     },
     {
-      "target": "Please help me.",
-      "words": [
-        "help",
-        "breathe",
-        "Please",
-        "choose",
-        "associate",
-        "me."
-      ],
+      "turkish": "Seni seviyorum.",
+      "english": "I love you.",
       "level": "A1"
     },
     {
-      "target": "Thanks for your help!",
-      "words": [
-        "year",
-        "for",
-        "your",
-        "adamant",
-        "help!",
-        "Thanks",
-        "boy"
-      ],
+      "turkish": "Bu benim kitabım.",
+      "english": "This is my book.",
       "level": "A1"
     },
     {
-      "target": "Sorry, I'm late.",
-      "words": [
-        "late.",
-        "chocolate",
-        "Sorry,",
-        "awake",
-        "I'm",
-        "divide"
-      ],
+      "turkish": "Çok güzelsin.",
+      "english": "You are very beautiful.",
       "level": "A1"
     },
     {
-      "target": "Excuse me, where is the bathroom?",
-      "words": [
-        "the",
-        "hungry",
-        "me,",
-        "is",
-        "abdicate",
-        "bathroom?",
-        "Excuse",
-        "where",
-        "weather"
-      ],
+      "turkish": "Ne yapıyorsun?",
+      "english": "What are you doing?",
       "level": "A1"
     },
     {
-      "target": "Yes, I agree.",
-      "words": [
-        "I",
-        "break",
-        "acclaim",
-        "agree.",
-        "century",
-        "Yes,"
-      ],
+      "turkish": "Acıktım.",
+      "english": "I am hungry.",
       "level": "A1"
     },
     {
-      "target": "No, thank you.",
-      "words": [
-        "thank",
-        "accord",
-        "challenge",
-        "No,",
-        "you.",
-        "like"
-      ],
+      "turkish": "Susamdım.",
+      "english": "I am thirsty.",
       "level": "A1"
     },
     {
-      "target": "Okay, I understand.",
-      "words": [
-        "understand.",
-        "I",
-        "week",
-        "place",
-        "adjacent",
-        "Okay,"
-      ],
+      "turkish": "Yorgunum.",
+      "english": "I am tired.",
       "level": "A1"
     },
     {
-      "target": "Welcome to our home!",
-      "words": [
-        "moon",
-        "bed",
-        "home!",
-        "wife",
-        "to",
-        "Welcome",
-        "our"
-      ],
+      "turkish": "İyi geceler.",
+      "english": "Good night.",
       "level": "A1"
     },
     {
-      "target": "I am happy.",
-      "words": [
-        "am",
-        "one",
-        "happy.",
-        "appreciate",
-        "I",
-        "chart"
-      ],
+      "turkish": "Günaydın.",
+      "english": "Good morning.",
       "level": "A1"
     },
     {
-      "target": "You are nice.",
-      "words": [
-        "accordance",
-        "sheep",
-        "are",
-        "nice.",
-        "picture",
-        "You"
-      ],
+      "turkish": "Görüşürüz.",
+      "english": "See you later.",
       "level": "A1"
     },
     {
-      "target": "He is my brother.",
-      "words": [
-        "my",
-        "is",
-        "annual",
-        "ancient",
-        "cow",
-        "He",
-        "brother."
-      ],
+      "turkish": "Teşekkür ederim.",
+      "english": "Thank you.",
       "level": "A1"
     },
     {
-      "target": "She is beautiful.",
-      "words": [
-        "beautiful.",
-        "is",
-        "abandon",
-        "change",
-        "twenty",
-        "She"
-      ],
+      "turkish": "Rica ederim.",
+      "english": "You are welcome.",
       "level": "A1"
     },
     {
-      "target": "We are friends.",
-      "words": [
-        "bond",
-        "abbreviate",
-        "confident",
-        "We",
-        "are",
-        "friends."
-      ],
+      "turkish": "Özür dilerim.",
+      "english": "I am sorry.",
       "level": "A1"
     },
     {
-      "target": "They are students.",
-      "words": [
-        "students.",
-        "give",
-        "are",
-        "also",
-        "if",
-        "They"
-      ],
+      "turkish": "Lütfen yardım et.",
+      "english": "Please help me.",
       "level": "A1"
     },
     {
-      "target": "It is a book.",
-      "words": [
-        "orange",
-        "It",
-        "nice",
-        "book.",
-        "do",
-        "a",
-        "is"
-      ],
+      "turkish": "Kaç yaşındasın?",
+      "english": "How old are you?",
       "level": "A1"
     },
     {
-      "target": "This is my phone.",
-      "words": [
-        "is",
-        "find",
-        "This",
-        "phone.",
-        "small",
-        "when",
-        "my"
-      ],
+      "turkish": "Nerelisin?",
+      "english": "Where are you from?",
       "level": "A1"
     },
     {
-      "target": "That is your car.",
-      "words": [
-        "plate",
-        "car.",
-        "your",
-        "That",
-        "behavio",
-        "those",
-        "is"
-      ],
+      "turkish": "Türkiye'de yaşıyorum.",
+      "english": "I live in Turkey.",
       "level": "A1"
     },
     {
-      "target": "These are my books.",
-      "words": [
-        "These",
-        "are",
-        "cold",
-        "tall",
-        "civilization",
-        "my",
-        "books."
-      ],
+      "turkish": "İngilizce öğreniyorum.",
+      "english": "I am learning English.",
       "level": "A1"
     },
     {
-      "target": "Those are your keys.",
-      "words": [
-        "are",
-        "keys.",
-        "Those",
-        "your",
-        "acumen",
-        "sheep",
-        "bag"
-      ],
+      "turkish": "Okula gidiyorum.",
+      "english": "I go to school.",
       "level": "A1"
     },
     {
-      "target": "I have one sister.",
-      "words": [
-        "besides",
-        "have",
-        "clause",
-        "accompany",
-        "I",
-        "one",
-        "sister."
-      ],
+      "turkish": "İşe gidiyorum.",
+      "english": "I go to work.",
       "level": "A1"
     },
     {
-      "target": "Two plus two equals four.",
-      "words": [
-        "bathroom",
-        "plus",
-        "Two",
-        "equals",
-        "key",
-        "two",
-        "four.",
-        "one"
-      ],
+      "turkish": "Kahve içiyorum.",
+      "english": "I drink coffee.",
       "level": "A1"
     },
     {
-      "target": "I have three cats.",
-      "words": [
-        "door",
-        "cats.",
-        "bed",
-        "I",
-        "three",
-        "chief",
-        "have"
-      ],
+      "turkish": "Yemek yiyorum.",
+      "english": "I eat food.",
       "level": "A1"
     },
     {
-      "target": "There are four seasons.",
-      "words": [
-        "continue",
-        "There",
-        "seasons.",
-        "are",
-        "catalog",
-        "concerned",
-        "four"
-      ],
+      "turkish": "Uyuyorum.",
+      "english": "I am sleeping.",
       "level": "A1"
     },
     {
-      "target": "I work five days a week.",
-      "words": [
-        "there",
-        "week.",
-        "I",
-        "continue",
-        "work",
-        "when",
-        "five",
-        "days",
-        "a"
-      ],
+      "turkish": "Kitap okuyorum.",
+      "english": "I read books.",
       "level": "A1"
     },
     {
-      "target": "Six students are here.",
-      "words": [
-        "here.",
-        "box",
-        "academy",
-        "are",
-        "students",
-        "market",
-        "Six"
-      ],
+      "turkish": "Müzik dinliyorum.",
+      "english": "I listen to music.",
       "level": "A1"
     },
     {
-      "target": "Seven days in a week.",
-      "words": [
-        "three",
-        "in",
-        "days",
-        "store",
-        "Seven",
-        "a",
-        "cave",
-        "week."
-      ],
+      "turkish": "Film izliyorum.",
+      "english": "I watch movies.",
       "level": "A1"
     },
     {
-      "target": "School starts at eight.",
-      "words": [
-        "buy",
-        "School",
-        "eight.",
-        "starts",
-        "hotel",
-        "annual",
-        "at"
-      ],
+      "turkish": "Spor yapıyorum.",
+      "english": "I do sports.",
       "level": "A1"
     },
     {
-      "target": "Nine players on the field.",
-      "words": [
-        "visit",
-        "Nine",
-        "players",
-        "approve",
-        "dig",
-        "on",
-        "the",
-        "field."
-      ],
+      "turkish": "Yürüyüş yapıyorum.",
+      "english": "I go for a walk.",
       "level": "A1"
     },
     {
-      "target": "I have ten fingers.",
-      "words": [
-        "biography",
-        "ten",
-        "with",
-        "assume",
-        "I",
-        "have",
-        "fingers."
-      ],
+      "turkish": "Bugün hava güzel.",
+      "english": "The weather is nice today.",
       "level": "A1"
     },
     {
-      "target": "Twenty students in class.",
-      "words": [
-        "students",
-        "salad",
-        "Twenty",
-        "in",
-        "breathe",
-        "although",
-        "class."
-      ],
+      "turkish": "Yağmur yağıyor.",
+      "english": "It is raining.",
       "level": "A1"
     },
     {
-      "target": "I am thirty years old.",
-      "words": [
-        "eat",
-        "am",
-        "accuracy",
-        "thirty",
-        "old.",
-        "I",
-        "advent",
-        "years"
-      ],
+      "turkish": "Hava soğuk.",
+      "english": "The weather is cold.",
       "level": "A1"
     },
     {
-      "target": "One hundred dollars.",
-      "words": [
-        "bid",
-        "morning",
-        "dollars.",
-        "hundred",
-        "One",
-        "bench"
-      ],
+      "turkish": "Hava sıcak.",
+      "english": "The weather is hot.",
       "level": "A1"
     },
     {
-      "target": "A thousand people came.",
-      "words": [
-        "people",
-        "pizza",
-        "afternoon",
-        "A",
-        "town",
-        "thousand",
-        "came."
-      ],
+      "turkish": "Mutluyum.",
+      "english": "I am happy.",
       "level": "A1"
     },
     {
-      "target": "This is my first time.",
-      "words": [
-        "first",
-        "my",
-        "shirt",
-        "This",
-        "clothes",
-        "blame",
-        "time.",
-        "is"
-      ],
+      "turkish": "Üzgünüm.",
+      "english": "I am sad.",
       "level": "A1"
     },
     {
-      "target": "She came in second place.",
-      "words": [
-        "came",
-        "calm",
-        "second",
-        "bucket",
-        "in",
-        "She",
-        "place.",
-        "compare"
-      ],
+      "turkish": "Kızgınım.",
+      "english": "I am angry.",
       "level": "A1"
     },
     {
-      "target": "I love my family.",
-      "words": [
-        "like",
-        "love",
-        "double",
-        "my",
-        "I",
-        "family.",
-        "chaos"
-      ],
+      "turkish": "Heyecanlıyım.",
+      "english": "I am excited.",
       "level": "A1"
     },
     {
-      "target": "My mother is kind.",
-      "words": [
-        "is",
-        "calm",
-        "cereal",
-        "My",
-        "kind.",
-        "Sunday",
-        "mother"
-      ],
+      "turkish": "Saat kaç?",
+      "english": "What time is it?",
       "level": "A1"
     },
     {
-      "target": "My father works hard.",
-      "words": [
-        "father",
-        "works",
-        "hard.",
-        "gray",
-        "sky",
-        "much",
-        "My"
-      ],
+      "turkish": "Bugün Pazartesi.",
+      "english": "Today is Monday.",
       "level": "A1"
     },
     {
-      "target": "Mom, I'm hungry!",
-      "words": [
-        "hungry!",
-        "chemical",
-        "charity",
-        "I'm",
-        "Mom,",
-        "abdicate"
-      ],
+      "turkish": "Yarın Salı.",
+      "english": "Tomorrow is Tuesday.",
       "level": "A1"
     },
     {
-      "target": "Dad, can you help me?",
-      "words": [
-        "me?",
-        "can",
-        "nose",
-        "Dad,",
-        "charge",
-        "leg",
-        "help",
-        "you"
-      ],
+      "turkish": "Bu ne kadar?",
+      "english": "How much is this?",
       "level": "A1"
     },
     {
-      "target": "My parents are teachers.",
-      "words": [
-        "teachers.",
-        "are",
-        "claim",
-        "sister",
-        "My",
-        "six",
-        "parents"
-      ],
+      "turkish": "Çok pahalı.",
+      "english": "It is very expensive.",
       "level": "A1"
     },
     {
-      "target": "My sister is younger.",
-      "words": [
-        "calculate",
-        "younger.",
-        "is",
-        "sister",
-        "My",
-        "play",
-        "worker"
-      ],
+      "turkish": "Çok ucuz.",
+      "english": "It is very cheap.",
       "level": "A1"
     },
     {
-      "target": "My brother plays football.",
-      "words": [
-        "football.",
-        "very",
-        "plays",
-        "mouth",
-        "My",
-        "there",
-        "brother"
-      ],
+      "turkish": "Bunu istiyorum.",
+      "english": "I want this.",
       "level": "A1"
     },
     {
-      "target": "He is my son.",
-      "words": [
-        "He",
-        "is",
-        "box",
-        "adventure",
-        "meat",
-        "my",
-        "son."
-      ],
+      "turkish": "Bunu seviyorum.",
+      "english": "I like this.",
       "level": "A1"
     },
     {
-      "target": "She is my daughter.",
-      "words": [
-        "She",
-        "is",
-        "my",
-        "daughter.",
-        "hour",
-        "abroad",
-        "beach"
-      ],
+      "turkish": "Bunu sevmiyorum.",
+      "english": "I do not like this.",
       "level": "A1"
     },
     {
-      "target": "The child is playing.",
-      "words": [
-        "The",
-        "accordingly",
-        "playing.",
-        "do",
-        "difference",
-        "child",
-        "is"
-      ],
+      "turkish": "Anlamıyorum.",
+      "english": "I do not understand.",
       "level": "A1"
     },
     {
-      "target": "The children are happy.",
-      "words": [
-        "happy.",
-        "son",
-        "more",
-        "close",
-        "The",
-        "are",
-        "children"
-      ],
+      "turkish": "Tekrar söyler misin?",
+      "english": "Can you say that again?",
       "level": "A1"
     },
     {
-      "target": "The baby is sleeping.",
-      "words": [
-        "baby",
-        "The",
-        "is",
-        "sleeping.",
-        "brother",
-        "near",
-        "butter"
-      ],
+      "turkish": "Yavaş konuş lütfen.",
+      "english": "Please speak slowly.",
       "level": "A1"
     },
     {
-      "target": "This is my husband.",
-      "words": [
-        "This",
-        "chair",
-        "is",
-        "breeze",
-        "tired",
-        "husband.",
-        "my"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "This is my wife.",
-      "words": [
-        "who",
-        "is",
-        "accuracy",
-        "my",
-        "wife.",
-        "belt",
-        "This"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "My grandfather is old.",
-      "words": [
-        "My",
-        "old.",
-        "is",
-        "love",
-        "busy",
-        "grandfather",
-        "continue"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "My grandmother bakes cookies.",
-      "words": [
-        "bakes",
-        "bubble",
-        "cookies.",
-        "who",
-        "grandmother",
-        "train",
-        "My"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "My uncle lives in Istanbul.",
-      "words": [
-        "lives",
-        "My",
-        "in",
-        "absorb",
-        "uncle",
-        "show",
-        "chemical",
-        "Istanbul."
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "My aunt is a doctor.",
-      "words": [
-        "debate",
-        "doctor.",
-        "cloud",
-        "aunt",
-        "My",
-        "is",
-        "body",
-        "a"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "My cousin is my age.",
-      "words": [
-        "block",
-        "My",
-        "age.",
-        "my",
-        "country",
-        "cousin",
-        "bottom",
-        "is"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "I want to be a doctor.",
-      "words": [
-        "I",
-        "doctor.",
-        "want",
-        "catalog",
-        "a",
-        "be",
-        "station",
-        "restaurant",
-        "to"
-      ],
-      "level": "A1"
+      "turkish": "Her gün spor yapıyorum.",
+      "english": "I exercise every day.",
+      "level": "A2"
     },
     {
-      "target": "I have a car.",
-      "words": [
-        "I",
-        "listen",
-        "tall",
-        "a",
-        "have",
-        "cheese",
-        "car."
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "I do my homework.",
-      "words": [
-        "homework.",
-        "my",
-        "abysmal",
-        "do",
-        "ten",
-        "he",
-        "I"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "I go to school.",
-      "words": [
-        "knife",
-        "school.",
-        "go",
-        "one",
-        "wait",
-        "to",
-        "I"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "Please come here.",
-      "words": [
-        "awake",
-        "here.",
-        "egg",
-        "announce",
-        "Please",
-        "come"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "I see a bird.",
-      "words": [
-        "blind",
-        "a",
-        "betray",
-        "long",
-        "see",
-        "bird.",
-        "I"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "I know the answer.",
-      "words": [
-        "the",
-        "answer.",
-        "home",
-        "person",
-        "daughter",
-        "know",
-        "I"
-      ],
-      "level": "A1"
+      "turkish": "Dün sinemaya gittim.",
+      "english": "I went to the cinema yesterday.",
+      "level": "A2"
     },
     {
-      "target": "I get up early.",
-      "words": [
-        "I",
-        "left",
-        "from",
-        "get",
-        "early.",
-        "up",
-        "drop"
-      ],
-      "level": "A1"
-    },
-    {
-      "target": "I make breakfast.",
-      "words": [
-        "milk",
-        "approve",
-        "abrupt",
-        "make",
-        "breakfast.",
-        "I"
-      ],
-      "level": "A1"
+      "turkish": "Yarın seni arayacağım.",
+      "english": "I will call you tomorrow.",
+      "level": "A2"
     },
     {
-      "target": "Take this book.",
-      "words": [
-        "birthday",
-        "book.",
-        "school",
-        "Take",
-        "backward",
-        "this"
-      ],
-      "level": "A1"
+      "turkish": "Geçen hafta tatile gittik.",
+      "english": "We went on vacation last week.",
+      "level": "A2"
     },
     {
-      "target": "I want water.",
-      "words": [
-        "want",
-        "I",
-        "water.",
-        "brain",
-        "mom",
-        "cease"
-      ],
-      "level": "A1"
+      "turkish": "Gelecek yıl evleneceğim.",
+      "english": "I will get married next year.",
+      "level": "A2"
     },
     {
-      "target": "Give me the pen.",
-      "words": [
-        "bulk",
-        "common",
-        "the",
-        "know",
-        "me",
-        "Give",
-        "pen."
-      ],
-      "level": "A1"
+      "turkish": "İki yıldır İngilizce öğreniyorum.",
+      "english": "I have been learning English for two years.",
+      "level": "A2"
     },
     {
-      "target": "I think you're right.",
-      "words": [
-        "brass",
-        "I",
-        "right.",
-        "every",
-        "think",
-        "stand",
-        "you're"
-      ],
-      "level": "A1"
+      "turkish": "Hiç İstanbul'a gittin mi?",
+      "english": "Have you ever been to Istanbul?",
+      "level": "A2"
     },
     {
-      "target": "Say hello to everyone.",
-      "words": [
-        "egg",
-        "assign",
-        "to",
-        "hello",
-        "everyone.",
-        "Say",
-        "create"
-      ],
-      "level": "A1"
+      "turkish": "Daha önce bu filmi izledim.",
+      "english": "I have seen this movie before.",
+      "level": "A2"
     },
     {
-      "target": "Tell me a story.",
-      "words": [
-        "Tell",
-        "other",
-        "story.",
-        "street",
-        "a",
-        "me",
-        "wall"
-      ],
-      "level": "A1"
+      "turkish": "Henüz ödevimi bitirmedim.",
+      "english": "I have not finished my homework yet.",
+      "level": "A2"
     },
     {
-      "target": "Put it on the table.",
-      "words": [
-        "on",
-        "it",
-        "the",
-        "photo",
-        "table.",
-        "cable",
-        "Put",
-        "bring"
-      ],
-      "level": "A1"
+      "turkish": "Az önce eve geldim.",
+      "english": "I just came home.",
+      "level": "A2"
     },
     {
-      "target": "I need help.",
-      "words": [
-        "chair",
-        "I",
-        "help.",
-        "hear",
-        "clock",
-        "need"
-      ],
-      "level": "A1"
+      "turkish": "Sabahları erken kalkıyorum.",
+      "english": "I wake up early in the mornings.",
+      "level": "A2"
     },
     {
-      "target": "I feel happy today.",
-      "words": [
-        "brick",
-        "today.",
-        "chicken",
-        "divide",
-        "I",
-        "feel",
-        "happy"
-      ],
-      "level": "A1"
+      "turkish": "Akşamları genelde televizyon izlerim.",
+      "english": "I usually watch TV in the evenings.",
+      "level": "A2"
     },
     {
-      "target": "I want to become a teacher.",
-      "words": [
-        "I",
-        "be",
-        "to",
-        "a",
-        "want",
-        "become",
-        "teacher.",
-        "blade",
-        "name"
-      ],
-      "level": "A1"
+      "turkish": "Hafta sonları arkadaşlarımla görüşürüm.",
+      "english": "I meet my friends on weekends.",
+      "level": "A2"
     },
     {
-      "target": "I leave at 8 AM.",
-      "words": [
-        "easy",
-        "I",
-        "8",
-        "leave",
-        "chair",
-        "gray",
-        "at",
-        "AM."
-      ],
-      "level": "A1"
+      "turkish": "Yemekten sonra yürüyüşe çıkarım.",
+      "english": "I go for a walk after dinner.",
+      "level": "A2"
     },
     {
-      "target": "I can't find my keys.",
-      "words": [
-        "I",
-        "cemetery",
-        "can't",
-        "belong",
-        "find",
-        "keys.",
-        "bleed",
-        "my"
-      ],
-      "level": "A1"
+      "turkish": "İşten sonra eve giderim.",
+      "english": "I go home after work.",
+      "level": "A2"
     },
     {
-      "target": "Call me later.",
-      "words": [
-        "beach",
-        "me",
-        "child",
-        "Call",
-        "later.",
-        "abide"
-      ],
-      "level": "A1"
+      "turkish": "Kahvaltıdan önce duş alırım.",
+      "english": "I take a shower before breakfast.",
+      "level": "A2"
     },
     {
-      "target": "Can I ask a question?",
-      "words": [
-        "arrange",
-        "bill",
-        "a",
-        "Can",
-        "question?",
-        "ask",
-        "I",
-        "have"
-      ],
-      "level": "A1"
+      "turkish": "Çalışırken müzik dinlerim.",
+      "english": "I listen to music while working.",
+      "level": "A2"
     },
     {
-      "target": "I work every day.",
-      "words": [
-        "bleed",
-        "work",
-        "day.",
-        "I",
-        "every",
-        "good",
-        "it"
-      ],
-      "level": "A1"
+      "turkish": "Yemek yapmayı seviyorum.",
+      "english": "I love cooking.",
+      "level": "A2"
     },
     {
-      "target": "I live in Turkey.",
-      "words": [
-        "in",
-        "I",
-        "but",
-        "department",
-        "Turkey.",
-        "dream",
-        "live"
-      ],
-      "level": "A1"
+      "turkish": "Kitap okumayı seviyorum.",
+      "english": "I enjoy reading books.",
+      "level": "A2"
     },
     {
-      "target": "Try your best!",
-      "words": [
-        "up",
-        "best!",
-        "stop",
-        "learn",
-        "your",
-        "Try"
-      ],
-      "level": "A1"
+      "turkish": "Yüzmeyi öğrenmek istiyorum.",
+      "english": "I want to learn swimming.",
+      "level": "A2"
     },
     {
-      "target": "Can you help me?",
-      "words": [
-        "sleep",
-        "help",
-        "Can",
-        "me?",
-        "you",
-        "cancel",
-        "cousin"
-      ],
-      "level": "A1"
+      "turkish": "Seyahat etmeyi çok severim.",
+      "english": "I really love traveling.",
+      "level": "A2"
     },
     {
-      "target": "Children play outside.",
-      "words": [
-        "glasses",
-        "Children",
-        "play",
-        "outside.",
-        "chase",
-        "five"
-      ],
-      "level": "A1"
+      "turkish": "Yeni insanlarla tanışmayı severim.",
+      "english": "I like meeting new people.",
+      "level": "A2"
     },
     {
-      "target": "I like pizza.",
-      "words": [
-        "pizza.",
-        "like",
-        "develop",
-        "I",
-        "cargo",
-        "about"
-      ],
-      "level": "A1"
+      "turkish": "Erken yatmayı tercih ederim.",
+      "english": "I prefer going to bed early.",
+      "level": "A2"
     },
     {
-      "target": "I love you.",
-      "words": [
-        "show",
-        "you.",
-        "I",
-        "foot",
-        "love",
-        "hello"
-      ],
-      "level": "A1"
+      "turkish": "Dışarıda yemek yemeyi severim.",
+      "english": "I like eating out.",
+      "level": "A2"
     },
     {
-      "target": "I eat breakfast.",
-      "words": [
-        "breakfast.",
-        "desert",
-        "capture",
-        "census",
-        "eat",
-        "I"
-      ],
-      "level": "A1"
+      "turkish": "Alışveriş yapmaktan nefret ediyorum.",
+      "english": "I hate shopping.",
+      "level": "A2"
     },
     {
-      "target": "I drink water.",
-      "words": [
-        "between",
-        "water.",
-        "I",
-        "drink",
-        "place",
-        "distance"
-      ],
-      "level": "A1"
+      "turkish": "Sabahları kahve içmek zorundayım.",
+      "english": "I have to drink coffee in the mornings.",
+      "level": "A2"
     },
     {
-      "target": "I sleep eight hours.",
-      "words": [
-        "eight",
-        "I",
-        "hours.",
-        "sleep",
-        "old",
-        "conversation",
-        "shop"
-      ],
-      "level": "A1"
+      "turkish": "Her gün İngilizce çalışmalıyım.",
+      "english": "I must study English every day.",
+      "level": "A2"
     },
     {
-      "target": "I walk to school.",
-      "words": [
-        "compare",
-        "to",
-        "chance",
-        "I",
-        "school.",
-        "walk",
-        "yes"
-      ],
-      "level": "A1"
+      "turkish": "Seni görmek istiyorum.",
+      "english": "I want to see you.",
+      "level": "A2"
     },
     {
-      "target": "I run every morning.",
-      "words": [
-        "run",
-        "calculate",
-        "I",
-        "morning.",
-        "base",
-        "every",
-        "adhere"
-      ],
-      "level": "A1"
+      "turkish": "Seninle konuşmam gerekiyor.",
+      "english": "I need to talk to you.",
+      "level": "A2"
     },
     {
-      "target": "I read books.",
-      "words": [
-        "bowl",
-        "beach",
-        "I",
-        "restaurant",
-        "read",
-        "books."
-      ],
-      "level": "A1"
+      "turkish": "Sana bir şey söylemem lazım.",
+      "english": "I have to tell you something.",
+      "level": "A2"
     },
     {
-      "target": "I write letters.",
-      "words": [
-        "I",
-        "challenge",
-        "absolute",
-        "write",
-        "letters.",
-        "bound"
-      ],
-      "level": "A1"
+      "turkish": "Beni anlamıyor musun?",
+      "english": "Do you not understand me?",
+      "level": "A2"
     },
     {
-      "target": "I speak English.",
-      "words": [
-        "I",
-        "English.",
-        "close",
-        "count",
-        "more",
-        "speak"
-      ],
-      "level": "A1"
+      "turkish": "Seni özledim.",
+      "english": "I missed you.",
+      "level": "A2"
     },
     {
-      "target": "Listen to me.",
-      "words": [
-        "potato",
-        "me.",
-        "to",
-        "Listen",
-        "plane",
-        "distance"
-      ],
-      "level": "A1"
+      "turkish": "Seni düşünüyorum.",
+      "english": "I am thinking of you.",
+      "level": "A2"
     },
     {
-      "target": "I watch TV.",
-      "words": [
-        "TV.",
-        "watch",
-        "I",
-        "arise",
-        "branch",
-        "home"
-      ],
-      "level": "A1"
+      "turkish": "Seninle gurur duyuyorum.",
+      "english": "I am proud of you.",
+      "level": "A2"
     },
     {
-      "target": "Look at this!",
-      "words": [
-        "more",
-        "run",
-        "this!",
-        "approve",
-        "Look",
-        "at"
-      ],
-      "level": "A1"
+      "turkish": "Sana güveniyorum.",
+      "english": "I trust you.",
+      "level": "A2"
     },
     {
-      "target": "I hear music.",
-      "words": [
-        "avoid",
-        "they",
-        "music.",
-        "I",
-        "hear",
-        "car"
-      ],
-      "level": "A1"
+      "turkish": "Bana yardım edebilir misin?",
+      "english": "Can you help me?",
+      "level": "A2"
     },
     {
-      "target": "I learn English.",
-      "words": [
-        "learn",
-        "door",
-        "mouth",
-        "I",
-        "English.",
-        "barrier"
-      ],
-      "level": "A1"
+      "turkish": "Sana bir şey sorabilir miyim?",
+      "english": "Can I ask you something?",
+      "level": "A2"
     },
     {
-      "target": "She teaches math.",
-      "words": [
-        "very",
-        "teaches",
-        "bread",
-        "She",
-        "block",
-        "math."
-      ],
-      "level": "A1"
+      "turkish": "Benimle gelmek ister misin?",
+      "english": "Would you like to come with me?",
+      "level": "A2"
     },
     {
-      "target": "I study every night.",
-      "words": [
-        "table",
-        "every",
-        "study",
-        "night.",
-        "chamber",
-        "I",
-        "this"
-      ],
-      "level": "A1"
+      "turkish": "Bir fincan kahve ister misin?",
+      "english": "Would you like a cup of coffee?",
+      "level": "A2"
     },
     {
-      "target": "I understand now.",
-      "words": [
-        "bureau",
-        "understand",
-        "she",
-        "now.",
-        "cereal",
-        "I"
-      ],
-      "level": "A1"
+      "turkish": "Bana numaranı verebilir misin?",
+      "english": "Can you give me your number?",
+      "level": "A2"
     },
     {
-      "target": "I remember you!",
-      "words": [
-        "remember",
-        "claw",
-        "I",
-        "chocolate",
-        "you!",
-        "bear"
-      ],
-      "level": "A1"
+      "turkish": "Seninle tanışmak güzeldi.",
+      "english": "It was nice meeting you.",
+      "level": "A2"
     },
     {
-      "target": "Don't forget your keys.",
-      "words": [
-        "bicycle",
-        "cross",
-        "Don't",
-        "keys.",
-        "forget",
-        "your",
-        "or"
-      ],
-      "level": "A1"
+      "turkish": "Seninle vakit geçirmek güzel.",
+      "english": "It is nice spending time with you.",
+      "level": "A2"
     },
     {
-      "target": "Open the door.",
-      "words": [
-        "glass",
-        "door.",
-        "the",
-        "Open",
-        "okay",
-        "snow"
-      ],
-      "level": "A1"
+      "turkish": "Seni tekrar görmek isterim.",
+      "english": "I would like to see you again.",
+      "level": "A2"
     },
     {
-      "target": "Close the window.",
-      "words": [
-        "the",
-        "stay",
-        "Close",
-        "window.",
-        "although",
-        "curious"
-      ],
-      "level": "A1"
+      "turkish": "Yarın ne yapacaksın?",
+      "english": "What will you do tomorrow?",
+      "level": "A2"
     },
     {
-      "target": "Let's start the lesson.",
-      "words": [
-        "Let's",
-        "time",
-        "lesson.",
-        "start",
-        "breath",
-        "beach",
-        "the"
-      ],
-      "level": "A1"
+      "turkish": "Hafta sonu planın var mı?",
+      "english": "Do you have plans for the weekend?",
+      "level": "A2"
     },
     {
-      "target": "I finish work at 5.",
-      "words": [
-        "clock",
-        "bell",
-        "at",
-        "finish",
-        "champion",
-        "I",
-        "work",
-        "5."
-      ],
-      "level": "A1"
+      "turkish": "Nerede yaşıyorsun?",
+      "english": "Where do you live?",
+      "level": "A2"
     },
     {
-      "target": "Stop talking!",
-      "words": [
-        "Stop",
-        "talking!",
-        "salad",
-        "week",
-        "behave"
-      ],
-      "level": "A1"
+      "turkish": "Ne iş yapıyorsun?",
+      "english": "What do you do for work?",
+      "level": "A2"
     },
     {
-      "target": "Wait for me.",
-      "words": [
-        "cross",
-        "me.",
-        "Wait",
-        "for",
-        "learn",
-        "face"
-      ],
-      "level": "A1"
+      "turkish": "Kaç kardeşin var?",
+      "english": "How many siblings do you have?",
+      "level": "A2"
     },
     {
-      "target": "Please sit down.",
-      "words": [
-        "down.",
-        "Please",
-        "brush",
-        "arrange",
-        "correct",
-        "sit"
-      ],
-      "level": "A1"
+      "turkish": "Hobilerinin neler?",
+      "english": "What are your hobbies?",
+      "level": "A2"
     },
     {
-      "target": "Stand up, please.",
-      "words": [
-        "catalog",
-        "please.",
-        "Stand",
-        "fish",
-        "convenient",
-        "up,"
-      ],
-      "level": "A1"
+      "turkish": "En sevdiğin renk ne?",
+      "english": "What is your favorite color?",
+      "level": "A2"
     },
     {
-      "target": "I buy food.",
-      "words": [
-        "careful",
-        "never",
-        "buy",
-        "food.",
-        "celebrate",
-        "I"
-      ],
-      "level": "A1"
+      "turkish": "Eğer zamanım olsaydı, seni ziyaret ederdim.",
+      "english": "If I had time, I would visit you.",
+      "level": "B1"
     },
     {
-      "target": "They sell flowers.",
-      "words": [
-        "artificial",
-        "They",
-        "hard",
-        "bug",
-        "flowers.",
-        "sell"
-      ],
-      "level": "A1"
+      "turkish": "Keşke daha çok çalışsaydım.",
+      "english": "I wish I had studied harder.",
+      "level": "B1"
     },
     {
-      "target": "I pay by card.",
-      "words": [
-        "bargain",
-        "card.",
-        "by",
-        "destroy",
-        "I",
-        "nurse",
-        "pay"
-      ],
-      "level": "A1"
+      "turkish": "Sana söylemeliydim ama unuttum.",
+      "english": "I should have told you but I forgot.",
+      "level": "B1"
     },
     {
-      "target": "I cook dinner.",
-      "words": [
-        "learn",
-        "I",
-        "cook",
-        "achieve",
-        "dinner.",
-        "capital"
-      ],
-      "level": "A1"
+      "turkish": "Bunu yapmak zorunda değilsin.",
+      "english": "You do not have to do this.",
+      "level": "B1"
     },
     {
-      "target": "I clean my room.",
-      "words": [
-        "shoulder",
-        "clean",
-        "ceremony",
-        "breeze",
-        "my",
-        "I",
-        "room."
-      ],
-      "level": "A1"
+      "turkish": "Belki yarın gelirim.",
+      "english": "Maybe I will come tomorrow.",
+      "level": "B1"
     },
     {
-      "target": "Wash your hands.",
-      "words": [
-        "your",
-        "during",
-        "live",
-        "between",
-        "Wash",
-        "hands."
-      ],
-      "level": "A1"
+      "turkish": "Muhtemelen evde kalacağım.",
+      "english": "I will probably stay at home.",
+      "level": "B1"
     },
     {
-      "target": "I wear a jacket.",
-      "words": [
-        "I",
-        "chew",
-        "circumstance",
-        "bake",
-        "jacket.",
-        "wear",
-        "a"
-      ],
-      "level": "A1"
+      "turkish": "Kesinlikle seninle aynı fikirdeyim.",
+      "english": "I definitely agree with you.",
+      "level": "B1"
     },
     {
-      "target": "I drive a car.",
-      "words": [
-        "use",
-        "watch",
-        "a",
-        "I",
-        "child",
-        "car.",
-        "drive"
-      ],
-      "level": "A1"
+      "turkish": "Bence bu iyi bir fikir değil.",
+      "english": "I think this is not a good idea.",
+      "level": "B1"
     },
     {
-      "target": "I love to travel.",
-      "words": [
-        "love",
-        "travel.",
-        "to",
-        "I",
-        "that",
-        "waiter",
-        "brain"
-      ],
-      "level": "A1"
+      "turkish": "Bana göre bu çok pahalı.",
+      "english": "In my opinion, this is too expensive.",
+      "level": "B1"
     },
     {
-      "target": "Visit me tomorrow.",
-      "words": [
-        "tomorrow.",
-        "degree",
-        "Visit",
-        "to",
-        "me",
-        "seven"
-      ],
-      "level": "A1"
+      "turkish": "Seninle aynı fikirde değilim.",
+      "english": "I do not agree with you.",
+      "level": "B1"
     },
     {
-      "target": "Nice to meet you!",
-      "words": [
-        "cheerful",
-        "childhood",
-        "absolute",
-        "Nice",
-        "meet",
-        "you!",
-        "to"
-      ],
-      "level": "A1"
+      "turkish": "Bu konuda haklı olabilirsin.",
+      "english": "You might be right about this.",
+      "level": "B1"
     },
     {
-      "target": "Stay here, please.",
-      "words": [
-        "butter",
-        "Stay",
-        "here,",
-        "cost",
-        "leave",
-        "please."
-      ],
-      "level": "A1"
+      "turkish": "Bunun hakkında emin değilim.",
+      "english": "I am not sure about this.",
+      "level": "B1"
     },
     {
-      "target": "Bring your book.",
-      "words": [
-        "your",
-        "Bring",
-        "account",
-        "die",
-        "book.",
-        "know"
-      ],
-      "level": "A1"
+      "turkish": "Bunu daha önce hiç düşünmemiştim.",
+      "english": "I had never thought about this before.",
+      "level": "B1"
     },
     {
-      "target": "I carry my bag.",
-      "words": [
-        "I",
-        "my",
-        "bag.",
-        "carry",
-        "short",
-        "use",
-        "chance"
-      ],
-      "level": "A1"
+      "turkish": "Sana tamamen katılıyorum.",
+      "english": "I completely agree with you.",
+      "level": "B1"
     },
     {
-      "target": "Send me a message.",
-      "words": [
-        "dead",
-        "train",
-        "Send",
-        "admirable",
-        "me",
-        "a",
-        "message."
-      ],
-      "level": "A1"
+      "turkish": "Kısmen haklısın.",
+      "english": "You are partially right.",
+      "level": "B1"
     },
     {
-      "target": "Show me your work.",
-      "words": [
-        "me",
-        "clause",
-        "work.",
-        "blow",
-        "century",
-        "Show",
-        "your"
-      ],
-      "level": "A1"
+      "turkish": "Bu durumda ne yapmalıyım?",
+      "english": "What should I do in this situation?",
+      "level": "B1"
     },
     {
-      "target": "I use my phone.",
-      "words": [
-        "case",
-        "my",
-        "morning",
-        "phone.",
-        "use",
-        "I",
-        "short"
-      ],
-      "level": "A1"
+      "turkish": "Senin yerinde olsam, kabul ederdim.",
+      "english": "If I were you, I would accept.",
+      "level": "B1"
     },
     {
-      "target": "This is good.",
-      "words": [
-        "birthday",
-        "cell",
-        "is",
-        "good.",
-        "This",
-        "I"
-      ],
-      "level": "A1"
+      "turkish": "Bana tavsiyede bulunabilir misin?",
+      "english": "Can you give me advice?",
+      "level": "B1"
     },
     {
-      "target": "That's bad news.",
-      "words": [
-        "common",
-        "bad",
-        "dress",
-        "news.",
-        "That's",
-        "cold"
-      ],
-      "level": "A1"
+      "turkish": "Uzun zamandır seni görmeyi bekliyordum.",
+      "english": "I had been waiting to see you for a long time.",
+      "level": "B1"
     },
     {
-      "target": "A big house.",
-      "words": [
-        "thirty",
-        "A",
-        "house.",
-        "pink",
-        "big",
-        "shirt"
-      ],
-      "level": "A1"
+      "turkish": "Tam gitmek üzereydim ki telefon çaldı.",
+      "english": "I was about to leave when the phone rang.",
+      "level": "B1"
     },
     {
-      "target": "A small dog.",
-      "words": [
-        "dog.",
-        "finish",
-        "small",
-        "A",
-        "boy",
-        "accountability"
-      ],
-      "level": "A1"
+      "turkish": "Onu gördüğüm andan itibaren aşık oldum.",
+      "english": "I fell in love from the moment I saw her.",
+      "level": "B1"
     },
     {
-      "target": "I am happy!",
-      "words": [
-        "I",
-        "food",
-        "am",
-        "happy!",
-        "shop",
-        "brochure"
-      ],
-      "level": "A1"
+      "turkish": "Ne kadar zor olursa olsun, başaracağım.",
+      "english": "No matter how difficult it is, I will succeed.",
+      "level": "B1"
     },
     {
-      "target": "She is sad.",
-      "words": [
-        "cereal",
-        "mother",
-        "She",
-        "is",
-        "boom",
-        "sad."
-      ],
-      "level": "A1"
+      "turkish": "Artık onunla konuşmak istemiyorum.",
+      "english": "I do not want to talk to him anymore.",
+      "level": "B1"
     },
     {
-      "target": "My new phone.",
-      "words": [
-        "new",
-        "phone.",
-        "accuse",
-        "accuracy",
-        "My",
-        "sorry"
-      ],
-      "level": "A1"
+      "turkish": "Henüz kararımı vermedim.",
+      "english": "I have not made my decision yet.",
+      "level": "B1"
     },
     {
-      "target": "An old car.",
-      "words": [
-        "purple",
-        "cell",
-        "old",
-        "An",
-        "gray",
-        "car."
-      ],
-      "level": "A1"
+      "turkish": "Zaten bunu biliyordum.",
+      "english": "I already knew this.",
+      "level": "B1"
     },
     {
-      "target": "A young man.",
-      "words": [
-        "Tuesday",
-        "man.",
-        "travel",
-        "A",
-        "allow",
-        "young"
-      ],
-      "level": "A1"
+      "turkish": "Hala seni seviyorum.",
+      "english": "I still love you.",
+      "level": "B1"
     },
     {
-      "target": "Hot weather.",
-      "words": [
-        "Hot",
-        "cloud",
-        "neck",
-        "weather.",
-        "tea"
-      ],
-      "level": "A1"
+      "turkish": "Asla pes etme.",
+      "english": "Never give up.",
+      "level": "B1"
     },
     {
-      "target": "Cold water.",
-      "words": [
-        "help",
-        "hospital",
-        "Cold",
-        "beat",
-        "water."
-      ],
-      "level": "A1"
+      "turkish": "Bazen hayat zor olabiliyor.",
+      "english": "Sometimes life can be difficult.",
+      "level": "B1"
     },
     {
-      "target": "Long hair.",
-      "words": [
-        "waiter",
-        "Long",
-        "two",
-        "hair.",
-        "bond"
-      ],
-      "level": "A1"
+      "turkish": "Genellikle erkenen uyanırım.",
+      "english": "I usually wake up early.",
+      "level": "B1"
     },
     {
-      "target": "Short dress.",
-      "words": [
-        "waiter",
-        "Short",
-        "dress.",
-        "thing",
-        "bitter"
-      ],
-      "level": "A1"
+      "turkish": "Nadiren dışarıda yemek yerim.",
+      "english": "I rarely eat out.",
+      "level": "B1"
     },
     {
-      "target": "A tall man.",
-      "words": [
-        "tall",
-        "deal",
-        "man.",
-        "pay",
-        "certain",
-        "A"
-      ],
-      "level": "A1"
+      "turkish": "Sıklıkla spor yaparım.",
+      "english": "I often exercise.",
+      "level": "B1"
     },
     {
-      "target": "Fast car.",
-      "words": [
-        "break",
-        "achieve",
-        "Fast",
-        "weather",
-        "car."
-      ],
-      "level": "A1"
+      "turkish": "Her zaman pozitif olmaya çalışırım.",
+      "english": "I always try to be positive.",
+      "level": "B1"
     },
     {
-      "target": "Slow train.",
-      "words": [
-        "curious",
-        "many",
-        "more",
-        "Slow",
-        "train."
-      ],
-      "level": "A1"
+      "turkish": "Çoğu zaman evde kalırım.",
+      "english": "I mostly stay at home.",
+      "level": "B1"
     },
     {
-      "target": "Turn right.",
-      "words": [
-        "right.",
-        "brick",
-        "date",
-        "Turn",
-        "gray"
-      ],
-      "level": "A1"
+      "turkish": "Ara sıra arkadaşlarımı ziyaret ederim.",
+      "english": "I occasionally visit my friends.",
+      "level": "B1"
     },
     {
-      "target": "Turn left.",
-      "words": [
-        "left.",
-        "Turn",
-        "head",
-        "burden",
-        "cancel"
-      ],
-      "level": "A1"
+      "turkish": "İş aramaya başladım.",
+      "english": "I started looking for a job.",
+      "level": "B1"
     },
     {
-      "target": "Very near.",
-      "words": [
-        "agency",
-        "sandwich",
-        "Very",
-        "debate",
-        "near."
-      ],
-      "level": "A1"
+      "turkish": "Yeni bir hobi edinmek istiyorum.",
+      "english": "I want to take up a new hobby.",
+      "level": "B1"
     },
     {
-      "target": "Too far.",
-      "words": [
-        "pizza",
-        "far.",
-        "acclaim",
-        "carpet",
-        "Too"
-      ],
-      "level": "A1"
+      "turkish": "Kilo vermem gerekiyor.",
+      "english": "I need to lose weight.",
+      "level": "B1"
     },
     {
-      "target": "Easy question.",
-      "words": [
-        "allow",
-        "Easy",
-        "leave",
-        "chamber",
-        "question."
-      ],
-      "level": "A1"
+      "turkish": "Sağlıklı yaşamaya çalışıyorum.",
+      "english": "I am trying to live healthily.",
+      "level": "B1"
     },
     {
-      "target": "Hard work.",
-      "words": [
-        "work.",
-        "street",
-        "what",
-        "you",
-        "Hard"
-      ],
-      "level": "A1"
+      "turkish": "Stresli bir hafta geçirdim.",
+      "english": "I had a stressful week.",
+      "level": "B1"
     },
     {
-      "target": "Beautiful view.",
-      "words": [
-        "hair",
-        "mother",
-        "Beautiful",
-        "bored",
-        "view."
-      ],
-      "level": "A1"
+      "turkish": "Çok yorucu bir gündü.",
+      "english": "It was a very tiring day.",
+      "level": "B1"
     },
     {
-      "target": "Nice weather.",
-      "words": [
-        "capture",
-        "weather.",
-        "blow",
-        "Nice",
-        "backward"
-      ],
-      "level": "A1"
+      "turkish": "Harika bir deneyimdi.",
+      "english": "It was an amazing experience.",
+      "level": "B1"
     },
     {
-      "target": "Great job!",
-      "words": [
-        "Great",
-        "hand",
-        "job!",
-        "street",
-        "year"
-      ],
-      "level": "A1"
+      "turkish": "Unutulmaz bir gün oldu.",
+      "english": "It was an unforgettable day.",
+      "level": "B1"
     },
     {
-      "target": "I'm fine.",
-      "words": [
-        "I'm",
-        "car",
-        "teacher",
-        "fine.",
-        "thing"
-      ],
-      "level": "A1"
+      "turkish": "Çok ilginç bir kitap okudum.",
+      "english": "I read a very interesting book.",
+      "level": "B1"
     },
     {
-      "target": "Are you ready?",
-      "words": [
-        "ready?",
-        "depend",
-        "student",
-        "Are",
-        "boat",
-        "you"
-      ],
-      "level": "A1"
+      "turkish": "Etkileyici bir film izledim.",
+      "english": "I watched an impressive movie.",
+      "level": "B1"
     },
     {
-      "target": "I'm tired.",
-      "words": [
-        "ice cream",
-        "absorb",
-        "tired.",
-        "I'm",
-        "without"
-      ],
-      "level": "A1"
+      "turkish": "Lezzetli bir yemek yedim.",
+      "english": "I ate a delicious meal.",
+      "level": "B1"
     },
     {
-      "target": "I'm hungry.",
-      "words": [
-        "awake",
-        "table",
-        "I'm",
-        "hungry.",
-        "between"
-      ],
-      "level": "A1"
+      "turkish": "Güzel bir manzara gördüm.",
+      "english": "I saw a beautiful view.",
+      "level": "B1"
     },
     {
-      "target": "I'm thirsty.",
-      "words": [
-        "fruit",
-        "I'm",
-        "sandwich",
-        "morning",
-        "thirsty."
-      ],
-      "level": "A1"
+      "turkish": "Rahatlatıcı bir tatil yaptım.",
+      "english": "I had a relaxing vacation.",
+      "level": "B1"
     },
     {
-      "target": "I'm full.",
-      "words": [
-        "balloon",
-        "double",
-        "I'm",
-        "full.",
-        "pizza"
-      ],
-      "level": "A1"
+      "turkish": "Eğer daha dikkatli olsaydım, bu hatayı yapmazdım.",
+      "english": "If I had been more careful, I would not have made this mistake.",
+      "level": "B2"
     },
     {
-      "target": "Empty bottle.",
-      "words": [
-        "plane",
-        "Empty",
-        "cargo",
-        "department",
-        "bottle."
-      ],
-      "level": "A1"
+      "turkish": "Keşke geçmişe dönüp bazı kararları değiştirebilsem.",
+      "english": "I wish I could go back in time and change some decisions.",
+      "level": "B2"
     },
     {
-      "target": "I'm busy.",
-      "words": [
-        "busy.",
-        "onion",
-        "shoulder",
-        "I'm",
-        "same"
-      ],
-      "level": "A1"
+      "turkish": "Her ne kadar yorgun olsam da, işimi bitirmeliyim.",
+      "english": "Although I am tired, I must finish my work.",
+      "level": "B2"
     },
     {
-      "target": "Are you free?",
-      "words": [
-        "Are",
-        "wind",
-        "cheese",
-        "you",
-        "free?",
-        "bride"
-      ],
-      "level": "A1"
+      "turkish": "Bu projeyi tamamlamak için elimden geleni yapacağım.",
+      "english": "I will do my best to complete this project.",
+      "level": "B2"
     },
     {
-      "target": "It's early.",
-      "words": [
-        "appropriate",
-        "early.",
-        "butter",
-        "appear",
-        "It's"
-      ],
-      "level": "A1"
+      "turkish": "Durumu değerlendirdikten sonra karar vereceğim.",
+      "english": "I will decide after evaluating the situation.",
+      "level": "B2"
     },
     {
-      "target": "I'm late!",
-      "words": [
-        "airport",
-        "I'm",
-        "collect",
-        "abroad",
-        "late!"
-      ],
-      "level": "A1"
+      "turkish": "Sorunun kaynağını anlamaya çalışıyorum.",
+      "english": "I am trying to understand the source of the problem.",
+      "level": "B2"
     },
     {
-      "target": "Very important.",
-      "words": [
-        "Very",
-        "assure",
-        "dance",
-        "accordance",
-        "important."
-      ],
-      "level": "A1"
+      "turkish": "Bu konuda uzmanlarla görüşmek istiyorum.",
+      "english": "I want to consult with experts about this matter.",
+      "level": "B2"
     },
     {
-      "target": "Something different.",
-      "words": [
-        "different.",
-        "thirsty",
-        "want",
-        "rice",
-        "Something"
-      ],
-      "level": "A1"
+      "turkish": "Araştırma sonuçları oldukça ilginç.",
+      "english": "The research results are quite interesting.",
+      "level": "B2"
     },
     {
-      "target": "The same thing.",
-      "words": [
-        "thing.",
-        "bus",
-        "direction",
-        "The",
-        "Sunday",
-        "same"
-      ],
-      "level": "A1"
+      "turkish": "Bu yöntem daha etkili olabilir.",
+      "english": "This method might be more effective.",
+      "level": "B2"
     },
     {
-      "target": "Wrong answer.",
-      "words": [
-        "Wrong",
-        "photo",
-        "here",
-        "calm",
-        "answer."
-      ],
-      "level": "A1"
+      "turkish": "Verileri analiz etmemiz gerekiyor.",
+      "english": "We need to analyze the data.",
+      "level": "B2"
     },
     {
-      "target": "Correct answer.",
-      "words": [
-        "bag",
-        "Correct",
-        "although",
-        "answer.",
-        "city"
-      ],
-      "level": "A1"
+      "turkish": "Stratejiyi gözden geçirmeliyiz.",
+      "english": "We should revise the strategy.",
+      "level": "B2"
     },
     {
-      "target": "Red rose.",
-      "words": [
-        "face",
-        "Red",
-        "rose.",
-        "hungry",
-        "aspect"
-      ],
-      "level": "A1"
+      "turkish": "Önceliklerimizi belirlemeliyiz.",
+      "english": "We must determine our priorities.",
+      "level": "B2"
     },
     {
-      "target": "Blue sky.",
-      "words": [
-        "finger",
-        "water",
-        "sky.",
-        "Blue",
-        "three"
-      ],
-      "level": "A1"
+      "turkish": "Kaynakları verimli kullanmalıyız.",
+      "english": "We should use resources efficiently.",
+      "level": "B2"
     },
     {
-      "target": "Green grass.",
-      "words": [
-        "cargo",
-        "watch",
-        "Green",
-        "convenient",
-        "grass."
-      ],
-      "level": "A1"
+      "turkish": "Bu konuda farklı bakış açıları var.",
+      "english": "There are different perspectives on this issue.",
+      "level": "B2"
     },
     {
-      "target": "Yellow sun.",
-      "words": [
-        "sun.",
-        "associate",
-        "Yellow",
-        "cemetery",
-        "and"
-      ],
-      "level": "A1"
+      "turkish": "Tartışma oldukça hararetliydi.",
+      "english": "The discussion was quite heated.",
+      "level": "B2"
     },
     {
-      "target": "Black cat.",
-      "words": [
-        "accuracy",
-        "cat.",
-        "sugar",
-        "Black",
-        "box"
-      ],
-      "level": "A1"
+      "turkish": "Görüşlerimiz önemli ölçüde farklılık gösteriyor.",
+      "english": "Our views differ significantly.",
+      "level": "B2"
     },
     {
-      "target": "White snow.",
-      "words": [
-        "snow.",
-        "battery",
-        "White",
-        "describe",
-        "burn"
-      ],
-      "level": "A1"
+      "turkish": "Bu konuda uzlaşmaya varamadık.",
+      "english": "We could not reach a consensus on this matter.",
+      "level": "B2"
     },
     {
-      "target": "Brown hair.",
-      "words": [
-        "to",
-        "sell",
-        "Brown",
-        "brother",
-        "hair."
-      ],
-      "level": "A1"
+      "turkish": "Deliller yetersiz görünüyor.",
+      "english": "The evidence appears insufficient.",
+      "level": "B2"
     },
     {
-      "target": "Pink flower.",
-      "words": [
-        "flower.",
-        "hard",
-        "attack",
-        "Pink",
-        "wear"
-      ],
-      "level": "A1"
+      "turkish": "Teorinin pratik uygulaması zor.",
+      "english": "The practical application of the theory is difficult.",
+      "level": "B2"
     },
     {
-      "target": "Orange juice.",
-      "words": [
-        "bicycle",
-        "deliver",
-        "juice.",
-        "behind",
-        "Orange"
-      ],
-      "level": "A1"
+      "turkish": "Bulgular beklediğimizden farklı çıktı.",
+      "english": "The findings turned out different than we expected.",
+      "level": "B2"
     },
     {
-      "target": "Purple dress.",
-      "words": [
-        "Purple",
-        "dress.",
-        "nose",
-        "run",
-        "on"
-      ],
-      "level": "A1"
+      "turkish": "Daha fazla araştırma yapılması gerekiyor.",
+      "english": "Further research needs to be conducted.",
+      "level": "B2"
     },
     {
-      "target": "Gray clouds.",
-      "words": [
-        "Gray",
-        "important",
-        "clouds.",
-        "cheerful",
-        "name"
-      ],
-      "level": "A1"
+      "turkish": "Sonuçlar dikkatle incelenmelidir.",
+      "english": "The results should be examined carefully.",
+      "level": "B2"
     },
     {
-      "target": "Human body.",
-      "words": [
-        "body.",
-        "hotel",
-        "and",
-        "Human",
-        "sad"
-      ],
-      "level": "A1"
+      "turkish": "Bu yaklaşım bazı avantajlar sunuyor.",
+      "english": "This approach offers some advantages.",
+      "level": "B2"
     },
     {
-      "target": "My head hurts.",
-      "words": [
-        "My",
-        "dinner",
-        "hurts.",
-        "on",
-        "chill",
-        "head"
-      ],
-      "level": "A1"
+      "turkish": "Potansiyel riskleri göz önünde bulundurmalıyız.",
+      "english": "We must consider the potential risks.",
+      "level": "B2"
     },
     {
-      "target": "Wash your face.",
-      "words": [
-        "cash",
-        "send",
-        "climb",
-        "face.",
-        "Wash",
-        "your"
-      ],
-      "level": "A1"
+      "turkish": "Uzun vadeli etkileri değerlendirmeliyiz.",
+      "english": "We should evaluate the long-term effects.",
+      "level": "B2"
     },
     {
-      "target": "Long hair.",
-      "words": [
-        "hair.",
-        "under",
-        "Long",
-        "cafe",
-        "double"
-      ],
-      "level": "A1"
+      "turkish": "Bu olguyu açıklamak için çeşitli teoriler ileri sürülmüştür.",
+      "english": "Various theories have been put forward to explain this phenomenon.",
+      "level": "C1"
     },
     {
-      "target": "Blue eyes.",
-      "words": [
-        "challenge",
-        "eyes.",
-        "forget",
-        "carbon",
-        "Blue"
-      ],
-      "level": "A1"
+      "turkish": "Araştırma metodolojisi titizlikle tasarlanmıştır.",
+      "english": "The research methodology has been meticulously designed.",
+      "level": "C1"
     },
     {
-      "target": "Big ears.",
-      "words": [
-        "Big",
-        "bike",
-        "bird",
-        "brass",
-        "ears."
-      ],
-      "level": "A1"
+      "turkish": "Bulgular mevcut literatürle tutarlılık göstermektedir.",
+      "english": "The findings are consistent with the existing literature.",
+      "level": "C1"
     },
     {
-      "target": "Small nose.",
-      "words": [
-        "Small",
-        "describe",
-        "nose.",
-        "deliver",
-        "home"
-      ],
-      "level": "A1"
+      "turkish": "Bu yaklaşım geleneksel paradigmayı sorgulamaktadır.",
+      "english": "This approach challenges the traditional paradigm.",
+      "level": "C1"
     },
     {
-      "target": "Open your mouth.",
-      "words": [
-        "divide",
-        "open",
-        "abysmal",
-        "your",
-        "Open",
-        "mouth."
-      ],
-      "level": "A1"
+      "turkish": "Verilerin kapsamlı analizi önemli sonuçlar ortaya koymuştur.",
+      "english": "Comprehensive analysis of the data has revealed significant results.",
+      "level": "C1"
     },
     {
-      "target": "White tooth.",
-      "words": [
-        "tooth.",
-        "hotel",
-        "difference",
-        "White",
-        "hungry"
-      ],
-      "level": "A1"
+      "turkish": "Teorik çerçeve, ampirik kanıtlarla desteklenmelidir.",
+      "english": "The theoretical framework should be supported by empirical evidence.",
+      "level": "C1"
     },
     {
-      "target": "Brush your teeth.",
-      "words": [
-        "teeth.",
-        "academic",
-        "Brush",
-        "no",
-        "your",
-        "burst"
-      ],
-      "level": "A1"
+      "turkish": "Bu konuda önemli bir akademik tartışma sürmektedir.",
+      "english": "There is a significant academic debate ongoing on this topic.",
+      "level": "C1"
     },
     {
-      "target": "Long neck.",
-      "words": [
-        "Long",
-        "neck.",
-        "celebrity",
-        "age",
-        "wash"
-      ],
-      "level": "A1"
+      "turkish": "Çalışma, disiplinler arası bir yaklaşım benimsemektedir.",
+      "english": "The study adopts an interdisciplinary approach.",
+      "level": "C1"
     },
     {
-      "target": "Strong shoulders.",
-      "words": [
-        "shoulders.",
-        "Strong",
-        "barrier",
-        "cast",
-        "bride"
-      ],
-      "level": "A1"
+      "turkish": "Sonuçlar istatistiksel olarak anlamlıdır.",
+      "english": "The results are statistically significant.",
+      "level": "C1"
     },
     {
-      "target": "Broken arm.",
-      "words": [
-        "behave",
-        "arm.",
-        "bright",
-        "Broken",
-        "breath"
-      ],
-      "level": "A1"
+      "turkish": "Bu hipotez deneysel verilerle doğrulanmıştır.",
+      "english": "This hypothesis has been validated with experimental data.",
+      "level": "C1"
     },
     {
-      "target": "Wash hands.",
-      "words": [
-        "chase",
-        "celebrate",
-        "claw",
-        "hands.",
-        "Wash"
-      ],
-      "level": "A1"
+      "turkish": "Çalışmanın sınırlılıkları dikkate alınmalıdır.",
+      "english": "The limitations of the study should be taken into account.",
+      "level": "C1"
     },
     {
-      "target": "Five fingers.",
-      "words": [
-        "bring",
-        "Five",
-        "burn",
-        "stand",
-        "fingers."
-      ],
-      "level": "A1"
+      "turkish": "Gelecek araştırmalar bu boşluğu doldurabilir.",
+      "english": "Future research can fill this gap.",
+      "level": "C1"
     },
     {
-      "target": "Long legs.",
-      "words": [
-        "ice cream",
-        "do",
-        "Long",
-        "brand",
-        "legs."
-      ],
-      "level": "A1"
+      "turkish": "Bu çerçevede, alternatif açıklamalar da mümkündür.",
+      "english": "Within this framework, alternative explanations are also possible.",
+      "level": "C1"
     },
     {
-      "target": "Hurt knee.",
-      "words": [
-        "belong",
-        "chase",
-        "Hurt",
-        "knee.",
-        "money"
-      ],
-      "level": "A1"
+      "turkish": "Kavramsal model, karmaşık ilişkileri açıklamaktadır.",
+      "english": "The conceptual model explains complex relationships.",
+      "level": "C1"
     },
     {
-      "target": "Big foot.",
-      "words": [
-        "foot.",
-        "abuse",
-        "then",
-        "Big",
-        "bowl"
-      ],
-      "level": "A1"
+      "turkish": "Bulgular, daha geniş bir bağlamda değerlendirilmelidir.",
+      "english": "The findings should be evaluated in a broader context.",
+      "level": "C1"
     }
   ]
 };
@@ -13371,9 +13102,21 @@
         fillBlanks = EMBEDDED_DATA.fillBlanks;
         buildSentences = EMBEDDED_DATA.buildSentences;
         
-        console.log('✅ Loaded', vocabulary.length, 'words,', fillBlanks.length, 'fill-blanks, and', buildSentences.length, 'sentence builders!');
-        console.log('💜 Hey İrem - This will keep you learning for months!');
+        // SHUFFLE FUNCTION for randomization
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+        
+        console.log('✅ Loaded', vocabulary.length, 'words,', fillBlanks.length, 'fill-blanks,', buildSentences.length, 'sentence builders!');
+        console.log('🦢 Swan Lake themed - Made with love for İrem 💜');
         // ===== END EMBEDDED DATA =====
+
+
 
 
 
@@ -13713,6 +13456,7 @@
         }
 
         function applyLevelFilter() {
+            // Apply filter AND randomize!
             if (currentLevel === 'ALL') {
                 filteredVocabulary = vocabulary;
                 filteredFillBlanks = fillBlanks;
@@ -13752,6 +13496,17 @@
 
         function switchTab(tab) {
             // Hide ALL content areas first
+            // RANDOMIZE content every time user switches tabs!
+            filteredVocabulary = shuffleArray(filteredVocabulary);
+            filteredFillBlanks = shuffleArray(filteredFillBlanks);
+            filteredBuildSentences = shuffleArray(filteredBuildSentences);
+            
+            // Reset to first item
+            state.currentFlashcard = 0;
+            state.currentFillBlank = 0;
+            state.currentBuildSentence = 0;
+            state.currentQuiz = 0;
+            
             document.querySelectorAll('.content-area').forEach(area => {
                 area.classList.remove('active');
                 area.style.display = 'none';
@@ -13910,7 +13665,7 @@
         // Build Sentence
         function loadBuildSentence() {
             if (filteredBuildSentences.length === 0) {
-                document.getElementById('bs-target').innerHTML = 'No exercises available for this level.';
+                document.getElementById('bs-turkish').innerHTML = 'No exercises available for this level.';
                 return;
             }
             
@@ -13921,13 +13676,19 @@
             const progress = ((state.currentBuildSentence / filteredBuildSentences.length) * 100).toFixed(0);
             document.getElementById('bs-progress').style.width = progress + '%';
             document.getElementById('bs-level').textContent = `${exercise.level} - ${state.currentBuildSentence + 1}/${filteredBuildSentences.length}`;
-            document.getElementById('bs-target').textContent = exercise.target;
+            
+            // Show Turkish sentence
+            document.getElementById('bs-turkish').textContent = '🇹🇷 ' + exercise.turkish;
             
             const buildingArea = document.getElementById('bs-area');
-            buildingArea.innerHTML = '<div class="placeholder-text">Tap words below to build the sentence</div>';
+            buildingArea.innerHTML = '<div class="placeholder-text">Tap words below to build the English sentence</div>';
             buildingArea.classList.remove('has-words');
             
-            const optionsHTML = exercise.words.map((word, idx) => 
+            // Create word chips from the English sentence (shuffled)
+            const words = exercise.english.split(' ');
+            const shuffledWords = [...words].sort(() => Math.random() - 0.5);
+            
+            const optionsHTML = shuffledWords.map((word, idx) => 
                 `<div class="word-chip" data-word="${word}" data-idx="${idx}" onclick="addWordToSentence(this)">${word}</div>`
             ).join('');
             document.getElementById('bs-options').innerHTML = optionsHTML;
@@ -13985,22 +13746,22 @@
             const built = state.builtWords.map(w => w.word).join(' ');
             const feedback = document.getElementById('bs-feedback');
             
-            if (built === exercise.target) {
-                feedback.textContent = '🎉 Perfect! You built the sentence correctly!';
+            // Compare with English translation
+            if (built === exercise.english) {
+                feedback.textContent = '🎉 Perfect! You translated it correctly!';
                 feedback.style.background = 'linear-gradient(135deg, #E8F5E9, #C8E6C9)';
                 feedback.style.color = '#2E7D32';
                 state.score += 15;
                 state.streak += 1;
                 state.correctAnswersInSession += 1;
                 
-                // Show flirty message
                 setTimeout(() => showFlirtyMessage('afterCorrect', 4000), 1000);
                 
                 if (state.correctAnswersInSession > 0 && state.correctAnswersInSession % 5 === 0) {
                     setTimeout(() => showFlirtyMessage('celebration', 5000), 6000);
                 }
             } else {
-                feedback.textContent = `❌ Not quite right. The correct sentence is: "${exercise.target}"`;
+                feedback.innerHTML = `❌ Not quite right.<br>Your answer: "${built}"<br>Correct answer: "${exercise.english}"`;
                 feedback.style.background = 'linear-gradient(135deg, #FFEBEE, #FFCDD2)';
                 feedback.style.color = '#C62828';
                 state.streak = 0;
